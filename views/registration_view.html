@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+  <style media="screen">
+    img {
+      width: 300px;
+      height: 200px;
+    }
+
+    .login-container {
+      width: 70%;
+      margin: auto;
+      background-color: #F7F7F7;
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.62);
+    }
+
+    .register-container {
+      width: 70%;
+      padding: 10px;
+      margin: auto;
+      background-color: #393939;
+    }
+
+    .register-container a {
+      color: #FE9;
+    }
+
+    .header {
+      line-height: 28px;
+      margin-bottom: 16px;
+      margin-top: 18px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #CCC;
+    }
+    a.btn{
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <img class="img-fluid rounded mx-auto d-block logo" src="../img/logi.png">
+    </div>
+    <div class="row login-container mt-3 p-4">
+      <h5 class="header w-100"><i class="fas fa-pencil-alt mr-2"></i></i>Registrarse</h5>
+      <form class="w-100" action="index.html" method="post">
+        <!-- Username -->
+        <div class="col-12 mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control is-valid" name="username" id="validationUsername" placeholder="Nombre de usuario" required>
+            <div class="invalid-feedback">
+              Please choose a username.
+            </div>
+          </div>
+        </div>
+        <!-- Contraseña -->
+        <div class="col-12 mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-unlock"></i></span>
+            </div>
+            <input type="text" class="form-control is-invalid" name="password" id="validationPassword" placeholder="Contraseña" required>
+            <div class="invalid-feedback">
+              Please choose a password.
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-redo"></i></span>
+            </div>
+            <input type="text" class="form-control is-valid" name="repassword" id="validationRePassword" placeholder="Confirme contraseña" required>
+            <div class="invalid-feedback">
+              Please choose a repassword.
+            </div>
+          </div>
+        </div>
+        <!-- E-mail -->
+        <div class="col-12 mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            </div>
+            <input type="text" class="form-control is-valid" name="email" id="validationEmail" placeholder="Correo electrónico" required>
+            <div class="invalid-feedback">
+              Please choose a e-mail.
+            </div>
+          </div>
+        </div>
+        <!-- Nombre y apellidos -->
+        <div class="col-12 mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control is-valid" name="name" id="validationName" placeholder="Nombre completo" required>
+            <div class="invalid-feedback">
+              Please choose a name.
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="btn btn-dark float-right">Registrarse</a>
+      </form>
+    </div>
+    <div class="row register-container">
+      <a href="login_view.html">Iniciar sesión</a>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
