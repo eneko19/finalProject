@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+  <style media="screen">
+  .navbar-global {
+    background-color: indigo;
+  }
+
+  .navbar-global .navbar-brand {
+    color: white;
+  }
+
+  .navbar-global .navbar-user > li > a
+  {
+    color: white;
+  }
+
+  .navbar-primary {
+    background-color: #333;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    top: 51px;
+    width: 200px;
+    z-index: 8;
+    overflow: hidden;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+  }
+
+  .navbar-primary.collapsed {
+    width: 60px;
+  }
+
+  .navbar-primary.collapsed .glyphicon {
+    font-size: 22px;
+  }
+
+  .navbar-primary.collapsed .nav-label {
+    display: none;
+  }
+
+  .btn-expand-collapse {
+      position: absolute;
+      display: block;
+      left: 0px;
+      bottom:0;
+      width: 100%;
+      padding: 8px 0;
+      border-top:solid 1px #666;
+      color: grey;
+      font-size: 20px;
+      text-align: center;
+  }
+
+  .btn-expand-collapse:hover,
+  .btn-expand-collapse:focus {
+      background-color: #222;
+      color: white;
+  }
+
+  .btn-expand-collapse:active {
+      background-color: #111;
+  }
+
+  .navbar-primary-menu,
+  .navbar-primary-menu li {
+    margin:0; padding:0;
+    list-style: none;
+  }
+
+  .navbar-primary-menu li a {
+    display: block;
+    padding: 10px 18px;
+    text-align: left;
+    border-bottom:solid 1px #444;
+    color: #ccc;
+  }
+
+  .navbar-primary-menu li a:hover {
+    background-color: #000;
+    text-decoration: none;
+    color: white;
+  }
+
+  .navbar-primary-menu li a .glyphicon {
+    margin-right: 6px;
+  }
+
+  .navbar-primary-menu li a:hover .glyphicon {
+    color: orchid;
+  }
+
+  .main-content {
+    margin-top: 60px;
+    margin-left: 200px;
+    padding: 20px;
+  }
+
+  .collapsed + .main-content {
+    margin-left: 60px;
+  }
+  </style>
+  <script type="text/javascript">
+  $( document ).ready(function() {
+    $('.btn-expand-collapse').click(function(e) {
+        $('.navbar-primary').toggleClass('collapsed');
+  });
+});
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
+        <div class="container-fluid avbar navbar-expand-md navbar-light  sticky-top">
+              <a class="navbar-brand mr-4" href="index.php">
+                  <img src="img/logi.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                  <span class="text-light">EGComponentes</span>
+              </a>
+
+              <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon "></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <form class="form-inline mx-auto" action="index.php?controller=products&action=search" method="POST">
+                      <input class="form-control mr-sm-2" type="search" name="buscador" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-success my-2 my-md-0 mr-4" type="submit">Search</button>
+                  </form>
+                  <div class="dropdown mr-2">
+                      <button class="btn bg-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fa fa-user-circle-o text-warning" aria-hidden="true"></i>
+                          <span class="text-warning mr-4">Hola, <?php echo $_SESSION['usuario'] ?>  </span>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item bg-light" href="index.php?controller=products&action=addView">Afegir productes</a>
+                          <a class="dropdown-item bg-light" href="index.php?controller=categories&action=view">Afegir categories</a>
+                          <a class="dropdown-item bg-light" href="index.php?controller=promotion&action=view">Crear promocions</a>
+                          <a class="dropdown-item bg-light" href="index.php?controller=login&action=logout"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i>Cerrar sesion</a>
+                      </div>
+                  </div>
+                  </div>
+                  </div>
+
+        </div>
+      </nav>
+  <nav class="navbar-primary">
+    <a href="#" class="btn-expand-collapse"><i class="fas fa-angle-left"></i></a>
+    <ul class="navbar-primary-menu">
+      <li>
+        <a href="#"><i class="fas fa-clipboard-list mr-2"></i><span class="nav-label">Dashboard</span></a>
+        <a href="#"><i class="fas fa-envelope mr-2"></i><span class="nav-label">Profile</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><span class="nav-label">Settings</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><span class="nav-label">Notification</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i></span><span class="nav-label">Monitor</span></a>
+      </li>
+    </ul>
+  </nav>
+  <div class="main-content">
+  <h1> I am the main content </h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
+  </div>
+</body>
+</html>
