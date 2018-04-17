@@ -11,7 +11,7 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
   <style media="screen">
     .navbar-global {
-      background-color: black;
+      background-color: #222;
     }
 
     .navbar-global .navbar-brand {
@@ -28,7 +28,7 @@
       left: 0px;
       position: absolute;
       top: 72px;
-      width: 200px;
+      width: 130px;
       z-index: 8;
       overflow: hidden;
       -webkit-transition: all 0.1s ease-in-out;
@@ -51,8 +51,8 @@
     .btn-expand-collapse {
       position: absolute;
       display: block;
-      left: 0px;
-      bottom: 0;
+      /* left: 0px;
+      bottom: 0; */
       width: 100%;
       padding: 8px 0;
       border-top: solid 1px #666;
@@ -81,7 +81,7 @@
     .navbar-primary-menu li a {
       display: block;
       padding: 10px 18px;
-      text-align: left;
+      text-align: center;
       border-bottom: solid 1px #444;
       color: #ccc;
     }
@@ -121,7 +121,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-global navbar-fixed-top bg-dark">
+  <nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
     <div class="container-fluid navbar navbar-expand-md navbar-light  sticky-top">
       <a class="navbar-brand mr-4" href="index.php">
                   <img src="../img/logi.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -136,7 +136,7 @@
         <!--mxauto -->
         <ul class="navbar-nav navbar-right">
               <li class="nav-item active">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -146,7 +146,7 @@
                   <a class="dropdown-item" href="#">Something else here</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Usuario
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -175,14 +175,15 @@
     </div>
   </nav>
   <nav class="navbar-primary">
-    <a href="#" class="btn-expand-collapse"><i class="fas fa-angle-left"></i></a>
-    <ul class="navbar-primary-menu">
+
+    <ul class="navbar-primary-menu ">
       <li>
-        <a href="#"><i class="fas fa-clipboard-list mr-2"></i><span class="nav-label">Dashboard</span></a>
-        <a href="#"><i class="fas fa-envelope mr-2"></i><span class="nav-label">Profile</span></a>
-        <a href="#"><i class="fas fa-cog mr-2"></i><span class="nav-label">Settings</span></a>
-        <a href="#"><i class="fas fa-cog mr-2"></i><span class="nav-label">Notification</span></a>
-        <a href="#"><i class="fas fa-cog mr-2"></i></span><span class="nav-label">Monitor</span></a>
+        <a href="#"><i class="fas fa-clipboard-list mr-2"></i><br><span class="nav-label">Dashboard</span></a>
+        <a href="#"><i class="fas fa-envelope mr-2"></i><br><span class="nav-label">Profile</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Settings</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Notification</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Monitor</span></a>
+        <a href="#" class="btn-expand-collapse"><i class="fas fa-chevron-circle-left"></i><i class="fas fa-chevron-circle-right"></i></a>
       </li>
     </ul>
   </nav>
