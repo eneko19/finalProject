@@ -23,11 +23,11 @@
     }
 
     .navbar-primary {
-      background-color: #333;
+      background-color: #DBDBDB;
       bottom: 0px;
       left: 0px;
       position: absolute;
-      top: 72px;
+      top: 64px;
       width: 130px;
       z-index: 8;
       overflow: hidden;
@@ -55,7 +55,6 @@
       bottom: 0; */
       width: 100%;
       padding: 8px 0;
-      border-top: solid 1px #666;
       color: grey;
       font-size: 20px;
       text-align: center;
@@ -63,8 +62,7 @@
 
     .btn-expand-collapse:hover,
     .btn-expand-collapse:focus {
-      background-color: #222;
-      color: white;
+
     }
 
     .btn-expand-collapse:active {
@@ -80,16 +78,17 @@
 
     .navbar-primary-menu li a {
       display: block;
-      padding: 10px 18px;
+      padding: 10px 0px;
       text-align: center;
-      border-bottom: solid 1px #444;
-      color: #ccc;
+      border-bottom: solid 1px #fff;
+      color: #393939;
     }
 
     .navbar-primary-menu li a:hover {
-      background-color: #000;
+      background-color: #E3E3E3;
       text-decoration: none;
-      color: white;
+      color: #337ab7;
+      border: 1px solid #337ab7;
     }
 
     .navbar-primary-menu li a .glyphicon {
@@ -101,27 +100,76 @@
     }
 
     .main-content {
-      margin-top: 60px;
-      margin-left: 200px;
-      padding: 20px;
+      margin-left: 150px;
+      padding: 10px;
     }
 
     .collapsed+.main-content {
-      margin-left: 60px;
+      margin-left: 80px;
     }
 
+    /**Bg-info**/
+
+    .bg-info {
+      background-color: #E7F2F8 !important
+    }
+
+    a.bg-info:focus,
+    a.bg-info:hover,
+    button.bg-info:focus,
+    button.bg-info:hover {
+      background-color: #E7F2F8 !important
+    }
+
+    /**End bg-info**/
+
+    /**Dropdown menu**/
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: auto;
+      z-index: 1000;
+      display: none;
+      float: left;
+      min-width: 10rem;
+      padding: .5rem 0;
+      margin: .125rem 0 0;
+      font-size: 1rem;
+      color: black;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(216, 27, 27, 0.15);
+      border-radius: .25rem;
+    }
+    /**END**/
+    .collapseCard{
+      font-size:30px;
+    }
+    li a{
+      font-size: 14px;
+    }
   </style>
   <script type="text/javascript">
     $(document).ready(function() {
+      /*Menu laterak*/
       $('.btn-expand-collapse').click(function(e) {
         $('.navbar-primary').toggleClass('collapsed');
+        $('.clickExp').toggleClass('d-none');
       });
+
+      // $('.btn-expand-collapse, .card-link').click(function(e) {
+      //   $('.navbar-primary').toggleClass('collapsed');
+      //   $('.clickExp').toggleClass('d-none');
+      // });
     });
   </script>
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-global navbar-fixed-top p-1">
     <div class="container-fluid navbar navbar-expand-md navbar-light  sticky-top">
       <a class="navbar-brand mr-4" href="index.php">
                   <img src="../img/logi.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -134,63 +182,89 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!--mxauto -->
-        <ul class="navbar-nav navbar-right">
-              <li class="nav-item active">
-                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-3">
+            <a href="#" class="btn btn-primary btn-sm">Reportar incidencia</a>
+          </li>
+          <li class="nav-item text-right mr-3">
+            <a class="nav-link dropdown-toggle text-light bg-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Usuario
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Mi cuenta</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Salir</a>
-                </div>
-              </li>
-            </ul>
-        <!-- <div class="dropdown mr-2">
-          <button class="btn bg-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-user-circle-o text-warning" aria-hidden="true"></i>
-                          <span class="text-warning mr-4">Hola, <?php echo $_SESSION['usuario'] ?>  </span>
-                      </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item bg-light" href="index.php?controller=products&action=addView">Afegir productes</a>
-            <a class="dropdown-item bg-light" href="index.php?controller=categories&action=view">Afegir categories</a>
-            <a class="dropdown-item bg-light" href="index.php?controller=promotion&action=view">Crear promocions</a>
-            <a class="dropdown-item bg-light" href="index.php?controller=login&action=logout"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i>Cerrar sesion</a>
-          </div>
-        </div> -->
-
-
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#"><i class="fas fa-user mr-3"></i>Mi cuenta</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt mr-3"></i>Salir</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     </div>
   </nav>
-  <nav class="navbar-primary">
-
-    <ul class="navbar-primary-menu ">
+  <nav class="navbar-primary border-right border-primary">
+    <ul class="navbar-primary-menu">
       <li>
-        <a href="#"><i class="fas fa-clipboard-list mr-2"></i><br><span class="nav-label">Dashboard</span></a>
-        <a href="#"><i class="fas fa-envelope mr-2"></i><br><span class="nav-label">Profile</span></a>
-        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Settings</span></a>
-        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Notification</span></a>
-        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Monitor</span></a>
-        <a href="#" class="btn-expand-collapse"><i class="fas fa-chevron-circle-left"></i><i class="fas fa-chevron-circle-right"></i></a>
+        <a href="#"><i class="fas fa-clipboard-list mr-2"></i><br><span class="nav-label">Mi vista</span></a>
+        <a href="#"><i class="fas fa-envelope mr-2"></i><br><span class="nav-label">Ver incidencias</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Reportar incidencia</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Wiki</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Resumen</span></a>
+        <a href="#" class="btn-expand-collapse p-0"><i class="fas fa-chevron-circle-left clickExp"></i><i class="fas fa-chevron-circle-right clickExp d-none"></i></a>
       </li>
     </ul>
   </nav>
   <div class="main-content">
-    <h1> I am the main content </h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
-  </div>
+    <div class="row bg-info p-2 mr-1 rounded">
+      <div class="col-10">
+        <p>Hola</p>
+      </div>
+      <div class="col-2">
+        <form class="" action="">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary text-white"><i class="fas fa-search"></i></span>
+            </div>
+            <input type="text" class="form-control" id="valDestino" name="valDestino" placeholder="Incidencia #">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-7">
+        <!-- Card no asignadas -->
+        <div class="card border border-primary my-3">
+          <div class="card-header bg-primary text-light p-1">
+            <h5 class="d-inline-block"><i class="fas fa-list-alt"></i> No Asignadas <span class="badge badge-secondary"><small>1-6 / 1000</small></span></h5>
+            <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#noAsign"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
+            <a href="#" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
+          </div>
+          <div id="noAsign" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              <h1> I am the main content </h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
+            </div>
+            </div>
+          </div>
+        <!-- Card reportadas por mi -->
+        <!-- Card resueltas -->
+        <!-- Card asignadas a mi -->
+        </div>
+        <div class="col-5">
+          <div class="card border border-primary my-3">
+            <div class="card-header bg-primary text-light p-1 ">
+              <h5 class="d-inline-block"><i class="far fa-clock"></i> Línea de tiempo <span class="badge badge-secondary"><small>1-6 / 1000</small></span></h5>
+              <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#linTiempo"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
+            </div>
+            <div id="linTiempo" class="collapse show" data-parent="#accordion">
+              <div class="card-body">
+                <h1> I am the main content </h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
+              </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
 </body>
 
 </html>
