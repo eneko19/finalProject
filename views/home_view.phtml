@@ -1,0 +1,39 @@
+<?php require_once('views/plantilla.html') ?>
+    <div class="row mt-2">
+      <div class="col-7">
+        <!-- Card no asignadas -->
+        <div class="card border border-primary my-3">
+          <div class="card-header bg-primary text-light p-1">
+            <h5 class="d-inline-block"><i class="fas fa-list-alt"></i> No Asignadas <span class="badge badge-secondary"><small>1-6 / 1000</small></span></h5>
+            <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#noAsign"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
+            <a href="#" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
+          </div>
+          <div id="noAsign" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              <h1> I am the main content </h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
+            </div>
+            </div>
+          </div>
+        <!-- Card reportadas por mi -->
+        <!-- Card resueltas -->
+        <!-- Card asignadas a mi -->
+        </div>
+        <div class="col-5">
+          <div class="card border border-primary my-3">
+            <div class="card-header bg-primary text-light p-1 ">
+              <h5 class="d-inline-block"><i class="far fa-clock"></i> Línea de tiempo <span class="badge badge-secondary"><small>1-6 / 1000</small></span></h5>
+              <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#linTiempo"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
+            </div>
+            <div id="linTiempo" class="collapse show" data-parent="#accordion">
+              <div class="card-body">
+                <h1> I am the main content </h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
+              </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
