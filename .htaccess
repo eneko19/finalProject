@@ -1,0 +1,27 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /finalProject
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php [L,QSA]
+</IfModule>
+
+
+#<IfModule mod_rewrite.c>
+#	RewriteEngine on
+#	RewriteCond %{REQUEST_FILENAME} !-d
+#	RewriteCond %{REQUEST_FILENAME} !-f
+#	RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+#</IfModule>
+
+
+
+#TODO: CHECK HOW TO FORBID ACCESS TO FOLDERS LIKE localhost/Core ... that means acces to folders that really exist, 
+#because the url rewrite only really redirect to index.php if, folder/file doesnt exist
+#
+#Order Allow,Deny 
+#Deny from all 
+#
+#<FilesMatch "\.(jpg|gif|png|php)$">
+#    Order Deny,Allow
+#   Allow from all
+#</FilesMatch>

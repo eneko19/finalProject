@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+  <style media="screen">
+    .navbar-global {
+      background-color: #222;
+    }
+
+    .navbar-global .navbar-brand {
+      color: white;
+    }
+
+    .navbar-global .navbar-user>li>a {
+      color: white;
+    }
+
+    .navbar-primary {
+      background-color: #DBDBDB;
+      bottom: 0px;
+      left: 0px;
+      position: absolute;
+      top: 64px;
+      width: 130px;
+      z-index: 8;
+      overflow: hidden;
+      -webkit-transition: all 0.1s ease-in-out;
+      -moz-transition: all 0.1s ease-in-out;
+      transition: all 0.1s ease-in-out;
+    }
+
+    .navbar-primary.collapsed {
+      width: 60px;
+    }
+
+    .navbar-primary.collapsed .glyphicon {
+      font-size: 22px;
+    }
+
+    .navbar-primary.collapsed .nav-label {
+      display: none;
+    }
+
+    .btn-expand-collapse {
+      position: absolute;
+      display: block;
+      /* left: 0px;
+      bottom: 0; */
+      width: 100%;
+      padding: 8px 0;
+      color: grey;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .btn-expand-collapse:hover,
+    .btn-expand-collapse:focus {
+
+    }
+
+    .btn-expand-collapse:active {
+      background-color: #111;
+    }
+
+    .navbar-primary-menu,
+    .navbar-primary-menu li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .navbar-primary-menu li a {
+      display: block;
+      padding: 10px 0px;
+      text-align: center;
+      border-bottom: solid 1px #fff;
+      color: #393939;
+    }
+
+    .navbar-primary-menu li a:hover {
+      background-color: #E3E3E3;
+      text-decoration: none;
+      color: #337ab7;
+      border: 1px solid #337ab7;
+    }
+
+    .navbar-primary-menu li a .glyphicon {
+      margin-right: 6px;
+    }
+
+    .navbar-primary-menu li a:hover .glyphicon {
+      color: orchid;
+    }
+
+    .main-content {
+      margin-left: 150px;
+      padding: 10px;
+    }
+
+    .collapsed+.main-content {
+      margin-left: 80px;
+    }
+
+    /**Bg-info**/
+
+    .bg-info {
+      background-color: #E7F2F8 !important
+    }
+
+    a.bg-info:focus,
+    a.bg-info:hover,
+    button.bg-info:focus,
+    button.bg-info:hover {
+      background-color: #E7F2F8 !important
+    }
+
+    /**End bg-info**/
+
+    /**Dropdown menu**/
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: auto;
+      z-index: 1000;
+      display: none;
+      float: left;
+      min-width: 10rem;
+      padding: .5rem 0;
+      margin: .125rem 0 0;
+      font-size: 1rem;
+      color: black;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(216, 27, 27, 0.15);
+      border-radius: .25rem;
+    }
+    /**END**/
+    .collapseCard{
+      font-size:30px;
+    }
+    li a{
+      font-size: 14px;
+    }
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /*Menu laterak*/
+      $('.btn-expand-collapse').click(function(e) {
+        $('.navbar-primary').toggleClass('collapsed');
+        $('.clickExp').toggleClass('d-none');
+      });
+
+      // $('.btn-expand-collapse, .card-link').click(function(e) {
+      //   $('.navbar-primary').toggleClass('collapsed');
+      //   $('.clickExp').toggleClass('d-none');
+      // });
+    });
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-global navbar-fixed-top p-1">
+    <div class="container-fluid navbar navbar-expand-md navbar-light  sticky-top">
+      <a class="navbar-brand mr-4" href="index.php">
+                  <img src="../img/logi.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                  <span class="text-light">LooK</span>
+              </a>
+
+      <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon "></span>
+              </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!--mxauto -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-3">
+            <a href="#" class="btn btn-primary btn-sm">Reportar incidencia</a>
+          </li>
+          <li class="nav-item text-right mr-3">
+            <a class="nav-link dropdown-toggle text-light bg-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Usuario
+                </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#"><i class="fas fa-user mr-3"></i>Mi cuenta</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt mr-3"></i>Salir</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </nav>
+  <nav class="navbar-primary border-right border-primary">
+    <ul class="navbar-primary-menu">
+      <li>
+        <a href="#"><i class="fas fa-clipboard-list mr-2"></i><br><span class="nav-label">Mi vista</span></a>
+        <a href="#"><i class="fas fa-envelope mr-2"></i><br><span class="nav-label">Ver incidencias</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Reportar incidencia</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Wiki</span></a>
+        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Resumen</span></a>
+        <a href="#" class="btn-expand-collapse p-0"><i class="fas fa-chevron-circle-left clickExp"></i><i class="fas fa-chevron-circle-right clickExp d-none"></i></a>
+      </li>
+    </ul>
+  </nav>
+  <div class="main-content">
+        <div class="row bg-info p-2 mr-1 rounded">
+                <p class="m-0 mt-1"> <i class="fas fa-user mx-1"></i> <small>enekus19 ( Eneko Gallego - administrador)</small></p>
+                <form class="ml-auto" action="">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-primary text-white"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input type="text" class="form-control-sm" id="valDestino" name="valDestino" placeholder="Incidencia #">
+                    </div>
+                </form>
+        </div>

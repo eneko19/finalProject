@@ -4,7 +4,7 @@
  *
  * @author eneko
  */
-class incidence_controller {
+class incidenceController {
     
     
     
