@@ -14,7 +14,7 @@
 
 class ErrorController{
     
-    public function view(){
+    public function index(){
         require_once ('app/views/login_view.html');
     }
 }

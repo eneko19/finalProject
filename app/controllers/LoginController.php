@@ -17,7 +17,14 @@ class LoginController {
         require_once ('app/views/login_view.html');
     }
     
-        public static function register(){
+    public static function register(){
         require_once ('app/views/register_view.html');
+    }
+    
+    public static function view(){
+        
+        $template = new TemplateEngine('user');
+        
+        return $template->render();
     }
 }

@@ -9,16 +9,86 @@
             <a href="#" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
           </div>
           <div id="noAsign" class="collapse show" data-parent="#accordion">
+            <div class="card-body p-0">
+                <table class="table table-striped table-sm table-bordered m-0">
+                <tbody>
+                <?php for ($i=0; $i < 6; $i++) { ?>
+                    <tr>
+                        <td scope="row">
+                          <a href="#">000215</a>
+                          <br>
+                          PEA
+                        </td>
+                        <td>
+                          <a href="#">Esto es un resumen pero bueno que no pasa nada</a>
+                          <br>
+                          <small>categoria - 24-03-2018 13:25</small>
+                        </td>
+                    </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
+            </div>
+          </div>
+        <!-- Card reportadas por mi -->
+        <div class="card border border-primary my-3">
+          <div class="card-header bg-primary text-light p-1">
+            <h5 class="d-inline-block"><i class="fas fa-list-alt"></i> Reportadas por mí <span class="badge badge-secondary"><small>1-6 / 1000</small></span></h5>
+            <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#reportMi"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
+            <a href="#" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
+          </div>
+          <div id="reportMi" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              <h1> Reportadas por mi </h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
+            </div>
+            </div>
+          </div>
+        <!-- Card resueltas -->
+        <div class="card border border-primary my-3">
+          <div class="card-header bg-primary text-light p-1">
+            <h5 class="d-inline-block"><i class="fas fa-list-alt"></i> Resueltas <span class="badge badge-secondary"><small>1-6 / 1000</small></span></h5>
+            <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#result"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
+            <a href="#" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
+          </div>
+          <div id="result" class="collapse show" data-parent="#accordion">
             <div class="card-body">
               <h1> I am the main content </h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
             </div>
             </div>
           </div>
-        <!-- Card reportadas por mi -->
-        <!-- Card resueltas -->
+          <!-- Card Modificadas recientemente -->
+          <div class="card border border-primary my-3">
+            <div class="card-header bg-primary text-light p-1">
+              <h5 class="d-inline-block"><i class="fas fa-list-alt"></i> Modificadas recientemente (30 días) <span class="badge badge-secondary"><small>1-6 / 1000</small></span></h5>
+              <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#modifRec"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
+              <a href="#" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
+            </div>
+            <div id="modifRec" class="collapse show" data-parent="#accordion">
+              <div class="card-body">
+                <h1> I am the main content </h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
+              </div>
+              </div>
+            </div>
         <!-- Card asignadas a mi -->
+        <div class="card border border-primary my-3">
+          <div class="card-header bg-primary text-light p-1">
+            <h5 class="d-inline-block"><i class="fas fa-list-alt"></i> Asignadas a mí <span class="badge badge-secondary"><small>1-6 / 1000</small></span></h5>
+            <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#asignMi"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
+            <a href="#" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
+          </div>
+          <div id="asignMi" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              <h1> I am the main content </h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sint assumenda quae aliquid voluptatibus quia, ea, ad natus magni repellat earum, culpa iure tempore. Enim dolor eaque minima voluptas ducimus?</p>
+            </div>
+            </div>
+          </div>
         </div>
+
         <div class="col-5">
           <div class="card border border-primary my-3">
             <div class="card-header bg-primary text-light p-1 ">

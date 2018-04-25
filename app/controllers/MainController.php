@@ -44,13 +44,14 @@ class MainController{
         
         if(!is_null(self::$controller)){
             if(is_null($action) || !method_exists(self::$controller, $action)){
-                $action = "view";
+                $action = "index";
             }
             
-            self::$controller->$action($param1,$param2,$otherParams);
+            $html = self::$controller->$action($param1,$param2,$otherParams);
+            
         }
         
-        
+     echo $html;   
     }
     
 }
