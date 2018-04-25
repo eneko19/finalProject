@@ -26,7 +26,7 @@
       background-color: #DBDBDB;
       bottom: 0px;
       left: 0px;
-      position: absolute;
+      position: fixed;
       top: 64px;
       width: 130px;
       z-index: 8;
@@ -87,6 +87,7 @@
       color: orchid;
     }
     .main-content {
+      margin-top: 65px;
       margin-left: 150px;
       padding: 10px;
     }
@@ -154,10 +155,10 @@
   </script>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-global navbar-fixed-top p-1">
-    <div class="container-fluid navbar navbar-expand-md navbar-light  sticky-top">
+  <nav class="navbar navbar-inverse navbar-global fixed-top p-1">
+    <div class="container-fluid navbar navbar-expand-md navbar-light sticky-top">
         <a class="navbar-brand mr-4" href="<?= base_url() ?>incidence/index">
-                  <img src="img/logi.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                  <img src="../img/logi.png" width="30" height="30" class="d-inline-block align-top" alt="">
                   <span class="text-light">LooK</span>
               </a>
 
@@ -202,7 +203,7 @@
         <div class="row bg-info p-2 mr-1 rounded">
                 <p class="m-0 mt-1"> <i class="fas fa-user mx-1"></i> <small>enekus19 (Eneko Gallego - administrador</small></p><!--<?= $values['username'] ?> ( <?= $values['user'] ?> - <?= $values['usertype'] ?>)-->
                 <form class="ml-auto" action="">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-0">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-primary text-white"><i class="fas fa-search"></i></span>
                         </div>
