@@ -136,6 +136,19 @@
     .disabled{
       cursor: no-drop;
     }
+    /*Espacio entre tablas*/
+    tr.spacer {
+    background-color: #ffffff !important;
+    color: #000000;
+    height: 10px;
+  }
+  /*Tamaño de letra de tabla timeline*/
+  .lTime{
+    font-size: 12px!important;
+  }
+  .table-info{
+    background-color: #edf3f4;
+  }
   </style>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -190,10 +203,10 @@
   <nav class="navbar-primary border-right border-primary">
     <ul class="navbar-primary-menu">
       <li>
-        <a href="<?= base_url() ?>incidence/index"><i class="fas fa-clipboard-list mr-2"></i><br><span class="nav-label">Mi vista</span></a>
-        <a href="<?= base_url()?>incidence/show"><i class="fas fa-envelope mr-2"></i><br><span class="nav-label">Ver incidencias</span></a>
-        <a href="<?= base_url()?>incidence/add"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Reportar incidencia</span></a>
-        <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Wiki</span></a>
+        <a href="<?= base_url() ?>incidence/index"><i class="fas fa-eye"></i><br><span class="nav-label">Mi vista</span></a>
+        <a href="<?= base_url()?>incidence/listar"><i class="far fa-list-alt"></i><br><span class="nav-label">Ver incidencias</span></a>
+        <a href="<?= base_url()?>incidence/add"><i class="far fa-edit"></i><br><span class="nav-label">Reportar incidencia</span></a>
+        <a href="#"><i class="fas fa-book"></i><br><span class="nav-label">Wiki</span></a>
         <a href="#"><i class="fas fa-cog mr-2"></i><br><span class="nav-label">Resumen</span></a>
         <a href="#" class="btn-expand-collapse p-0"><i class="fas fa-chevron-circle-left clickExp"></i><i class="fas fa-chevron-circle-right clickExp d-none"></i></a>
       </li>

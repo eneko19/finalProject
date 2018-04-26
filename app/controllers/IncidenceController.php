@@ -29,8 +29,16 @@ class IncidenceController {
 //                        ->render();
     }
 
-    public static function show() {
-        require_once('app/views/incidence_view.phtml');
+    public static function listar() {
+        $template = new TemplateEngine('incidenceList');
+        
+        return $template->render();
+    }
+    
+        public static function show() {
+        $template = new TemplateEngine('incidence');
+        
+        return $template->render();
     }
 
     public static function add() {
