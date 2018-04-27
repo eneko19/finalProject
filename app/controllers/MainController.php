@@ -1,5 +1,7 @@
 <?php
 
+namespace Lookit\app\controllers;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,47 +13,47 @@
  *
  * @author eneko
  */
-class MainController{
-    
+class MainController {
+
     private static $controller = NULL;
-    private static function checkUserLogged(){
-        //checkear si ek usuario en Session esta logueado;
+
+    private static function checkUserLogged() {
+//checkear si ek usuario en Session esta logueado;
         return true;
     }
-    
-    public static function dispatchRequest($controllerName,$action,$param1,$param2,$otherParams){
+
+    public static function dispatchRequest($controllerName, $action, $param1, $param2, $otherParams) {
 //        echo "<h1>HELLLO ENEKO</h1>";
 //        echo "<pre>FUNC ARGS:".print_r(func_get_args(), 1)."</pre>";
-        
-        
-        if(!self::checkUserLogged()){
+        if (!self::checkUserLogged()) {
             $controllerName = "Login";
-            //si quieres guardar la accion que el usuario iba hacer, despues del login lo redireccionas
+//si quieres guardar la accion que el usuario iba hacer, despues del login lo redireccionas
         }
-        
-        $controllerName = is_null($controllerName)|| empty($controllerName)?"incidence":ucfirst($controllerName);
-    
-        $className = $controllerName."Controller";
-        if(class_exists($className)){
+
+        $controllerName = is_null($controllerName) || empty($controllerName) ? "Incidence" : ucfirst($controllerName);
+
+        $className = __NAMESPACE__."\\{$controllerName}Controller";
+  
+        if (class_exists($className)) {
             self::$controller = new $className();
-        }else{
+        } else {
             self::$controller = new ErrorController();
         }
-        
-        /*if($controllerName=="products"){
-            self::$controller = new ProductsController();
-        }*/
-        
-        if(!is_null(self::$controller)){
-            if(is_null($action) || !method_exists(self::$controller, $action)){
+
+        /* if($controllerName=="products"){
+          self::$controller = new ProductsController();
+          } */
+
+        if (!is_null(self::$controller)) {
+            if (is_null($action) || !method_exists(self::$controller, $action)) {
                 $action = "index";
             }
-            
-            $html = self::$controller->$action($param1,$param2,$otherParams);
-            
+
+            $html = self::$controller->$action($param1, $param2, $otherParams);
         }
-        
-     echo $html;   
+
+
+        echo $html;
     }
-    
+
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace Lookit\app\controllers;
+
 /**
  * Description of incidence_controller
  *
@@ -8,7 +10,7 @@
 class IncidenceController {
 
     // Functions
-    public static function index() {
+    public function index() {
 
 
         //die('wfwef');
@@ -29,19 +31,19 @@ class IncidenceController {
 //                        ->render();
     }
 
-    public static function listar() {
+    public function listar() {
         $template = new TemplateEngine('incidenceList');
-        
-        return $template->render();
-    }
-    
-        public static function show() {
-        $template = new TemplateEngine('incidence');
-        
+
         return $template->render();
     }
 
-    public static function add() {
+    public function show() {
+        $template = new TemplateEngine('incidence');
+
+        return $template->render();
+    }
+
+    public function add() {
         require_once('app/views/incidenceAdd_view.phtml');
     }
 

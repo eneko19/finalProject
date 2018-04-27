@@ -1,0 +1,17 @@
+{
+    "name": "eneko/final-project",
+    "authors": [
+        {
+            "name": "eneko",
+            "email": "eneko@alturaspain.com"
+        }
+    ],
+    "require": {
+        "joshcam/mysqli-database-class": "dev-master"
+    },
+    "autoload":{
+        "psr-4":{
+            "Lookit\\":"app"
+        }
+    }
+}

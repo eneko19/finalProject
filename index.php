@@ -1,4 +1,9 @@
 <?php
+
+require_once 'vendor/autoload.php';
+use Lookit\app\controllers\TemplateEngine;
+use Lookit\app\controllers\MainController;
+
 //define('__BASE_PATH__','http://localhost/finalProject/');
 
 //require_once("app/controllers/MainController.php");
@@ -32,30 +37,30 @@ if (!function_exists('base_url')) {
 }
 
 
-function autoload($className)
-{
-//list comma separated directory name
-$directory = array('app/controllers/', 'app/models/', 'app/views/', '');
-
-//list of comma separated file format
-$fileFormat = array('%s.php', '%s.class.php');
-
-foreach ($directory as $current_dir)
-{
-    foreach ($fileFormat as $current_format)
-    {
-
-        $path = $current_dir.sprintf($current_format, $className);
-        if (file_exists($path))
-        {
-            //echo 'Encontrado' . $path;
-            require_once $path;
-            return ;
-        }
-    }
-}
-}
-spl_autoload_register('autoload');
+//function autoload($className)
+//{
+////list comma separated directory name
+//$directory = array('app/controllers/', 'app/models/', 'app/views/', '');
+//
+////list of comma separated file format
+//$fileFormat = array('%s.php', '%s.class.php');
+//
+//foreach ($directory as $current_dir)
+//{
+//    foreach ($fileFormat as $current_format)
+//    {
+//
+//        $path = $current_dir.sprintf($current_format, $className);
+//        if (file_exists($path))
+//        {
+//            //echo 'Encontrado' . $path;
+//            require_once $path;
+//            return ;
+//        }
+//    }
+//}
+//}
+//spl_autoload_register('autoload');
 
 
 TemplateEngine::setTemplatesPath(dirname(__FILE__).'/app/views/');

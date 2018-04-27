@@ -1,4 +1,7 @@
 <?php
+
+namespace Lookit\app\controllers;
+
 class TemplateEngine{
  private static $templatesPath;
  private $values = [];

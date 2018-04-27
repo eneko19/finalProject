@@ -1,5 +1,7 @@
 <?php
 
+namespace Lookit\app\controllers;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,19 +14,24 @@
  * @author eneko
  */
 class LoginController {
-  
-    public static function login(){
+
+    public function index() {
+        return $this->login();
+    }
+
+    public function login() {
         require_once ('app/views/login_view.html');
     }
-    
-    public static function register(){
+
+    public function register() {
         require_once ('app/views/register_view.html');
     }
-    
-    public static function view(){
-        
+
+    public function view() {
+
         $template = new TemplateEngine('user');
-        
+
         return $template->render();
     }
+
 }
