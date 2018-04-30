@@ -1,50 +1,51 @@
-<?php require_once('plantilla.html'); ?>
-                <div class="card border-primary mt-3 mr-3">
-                    <h5 class="card-header bg-primary text-light"><i class="fas fa-edit mr-2"></i>Escribe los detalles de la incidencia</h5>
-                    <div class="card-body p-0">
-                        <table class="table table-sm table-bordered m-0">
-                            <form method="POST" action="">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row" class="table-info">Categoría</th>
-                                        <td>
-                                            <select id="categoria" class="form-control">
-                                                <option selected>(seleccionar)</option>
-                                                <option>Esta es una</option>
-                                                <option>Esta otra xd</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="table-info">Prioridad</th>
-                                        <td>
-                                            <select id="prioridad" class="form-control">
-                                                <option selected>menor</option>
-                                                <option>mayor</option>
-                                                <option>xededed</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="table-info">Resumen</th>
-                                        <td><input type="text" class="form-control" id="asunto"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="table-info">Descripción</th>
-                                        <td><textarea class="form-control" rows="6" id="description"></textarea></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="table-info">Subir archivo</th>
-                                        <td><input type="email" class="form-control" id="email" placeholder="correo@correo.com"></td>
-                                    </tr>
-                                </tbody>
-                            </form>
-                        </table>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-light border-primary">Enviar incidencia</button>
-                    </div>
+<?php require_once('plantilla.phtml'); ?>
+<form method="POST" action="<?= base_url() ?>incidence/insert">
+    <div class="card border-primary mt-3 mr-3">
+        <h5 class="card-header bg-primary text-light"><i class="fas fa-edit mr-2"></i>Escribe los detalles de la incidencia</h5>
+        <div class="card-body p-0">
+            <table class="table table-sm table-bordered m-0">
+                <tbody>
+                    <tr>
+                        <th scope="row" class="table-info">Categoría</th>
+                        <td>
+                            <select id="categoria" name="categoria" class="form-control">
+                                <?php foreach ($values['categoria'] as $dato) { ?>                                              
+                                    <option value="<?php echo $dato['id'] ?>"><?php echo $dato['nombre'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="table-info">Prioridad</th>
+                        <td>
+                            <select id="prioridad" name="prioridad" class="form-control">
+                                <?php foreach ($values['prioridad'] as $dato) { ?>                                              
+                                    <option value="<?php echo $dato['id'] ?>"><?php echo $dato['nombre'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </td>
+                    </tr>
+                <input type="text" name="usucreacion" class="form-control d-none" id="asunto" value="<?= $values['usuario'][0]['id'] ?>">
+                <tr>
+                    <th scope="row" class="table-info">Resumen</th>
+                    <td><input type="text" name="asunto" class="form-control" id="asunto"></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-info">Descripción</th>
+                    <td><textarea class="form-control" name="descripcion" rows="6" id="description"></textarea></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-info">Subir archivo</th>
+                    <td><input type="email" class="form-control" id="email" placeholder="correo@correo.com"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-light border-primary">Enviar incidencia</button>
+        </div>
     </div>
-    </div>
+</form>
+</div>
 </body>
 </html>

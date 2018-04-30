@@ -25,3 +25,28 @@ RewriteRule .* index.php [L,QSA]
 #    Order Deny,Allow
 #   Allow from all
 #</FilesMatch>
+
+#Excluye archivos y los manda a index.php
+Options +FollowSymLinks +ExecCGI
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    #RewriteBase /
+    RewriteCond %{REQUEST_FILENAME}  -f [OR]
+    RewriteCond %{REQUEST_FILENAME} !-f [OR]
+    RewriteCond %{REQUEST_FILENAME} !-d [OR]
+    RewriteCond %{REQUEST_FILENAME} !-l
+    #images
+    RewriteCond %{REQUEST_URI} !(\.png|\.jpg|\.gif|\.jpeg|\.bmp)$
+    #files
+    RewriteCond %{REQUEST_URI} !(\.pdf|\.txt)$
+    #public web files
+    RewriteCond %{REQUEST_URI} !(\.css|\.js|\.json)$
+    RewriteRule ^(.*)$ index.php [NC,L,QSA]
+</IfModule>
+
+#deny acess to composer json files
+<FilesMatch "^(composer|installed)\.json$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>

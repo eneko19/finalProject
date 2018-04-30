@@ -2,6 +2,8 @@
 
 namespace Lookit\app\controllers;
 
+use Lookit\app\models\LoginModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,15 +18,31 @@ namespace Lookit\app\controllers;
 class LoginController {
 
     public function index() {
-        return $this->login();
+        //return $this->login();
+        $template = new TemplateEngine('login');
+
+        return $template->render();
     }
 
     public function login() {
-        require_once ('app/views/login_view.html');
+        $login = new LoginModel();
+
+        $username = !empty($_POST['username']) ? $_POST['username'] : "";
+        $password = !empty($_POST['password']) ? $_POST['password'] : "";
+        //$password_encriptada = md5($password);
+
+        $ok = $login->consultar_usuario();
+        if($ok){
+            $_SESSION['usuario'] = $username;
+        }
+        $incidence = new IncidenceController();
+        return $incidence->index();
     }
 
     public function register() {
-        require_once ('app/views/register_view.html');
+        $template = new TemplateEngine('register');
+
+        return $template->render();
     }
 
     public function view() {
@@ -32,6 +50,15 @@ class LoginController {
         $template = new TemplateEngine('user');
 
         return $template->render();
+    }
+
+    /**
+     * Finaliza la sesión de usuario
+     */
+    function logout() {
+        // Borra contingut de $_SESSION
+        unset($_SESSION['usuario']);
+        // elimina la sessio
     }
 
 }

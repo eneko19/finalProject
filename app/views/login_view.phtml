@@ -46,11 +46,11 @@
 <body>
   <div class="container">
     <div class="logo">
-      <img class="img-fluid rounded mx-auto d-block logo" src="../img/logi.png">
+      <img class="img-fluid rounded mx-auto d-block logo" src="img/logi.png">
     </div>
     <div class="row login-container mt-3 p-4">
       <h5 class="header w-100"><i class="fas fa-sign-in-alt mr-2"></i>Inicio de sesión</h5>
-      <form class="w-100" action="index.html" method="post">
+      <form class="w-100" action="<?= base_url()?>login/login" method="POST">
 
         <div class="col-12 mb-3">
           <div class="input-group">
@@ -76,11 +76,11 @@
           </div>
         </div>
 
-        <a href="#" class="btn btn-dark float-right">Iniciar sesión</a>
+          <button type="submit" class="btn btn-dark float-right">Iniciar sesión</button>
       </form>
     </div>
     <div class="row register-container">
-      <a href="login/register" >Solicitar nueva cuenta</a>
+      <a href="<?= base_url()?>login/register" >Solicitar nueva cuenta</a>
     </div>
   </div>
 </body>

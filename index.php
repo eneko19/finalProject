@@ -1,15 +1,21 @@
 <?php
 
 require_once 'vendor/autoload.php';
+
 use Lookit\app\controllers\TemplateEngine;
 use Lookit\app\controllers\MainController;
 
+session_start();
+$db = new MysqliDb (Array (
+                'host' => 'localhost',
+                'username' => 'user', 
+                'password' => 'user',
+                'db'=> 'gestor_incidencias',
+                'port' => 3306,
+                'prefix' => '',
+                'charset' => 'utf8'));
 //define('__BASE_PATH__','http://localhost/finalProject/');
 
-//require_once("app/controllers/MainController.php");
-//require_once("app/controllers/IncidenceController.php");
-//require_once("app/controllers/ErrorController.php");
-//require_once("app/controllers/LoginController.php");
 
 if (!function_exists('base_url')) {
     function base_url($atRoot=FALSE, $atCore=FALSE, $parse=FALSE){
@@ -37,31 +43,6 @@ if (!function_exists('base_url')) {
 }
 
 
-//function autoload($className)
-//{
-////list comma separated directory name
-//$directory = array('app/controllers/', 'app/models/', 'app/views/', '');
-//
-////list of comma separated file format
-//$fileFormat = array('%s.php', '%s.class.php');
-//
-//foreach ($directory as $current_dir)
-//{
-//    foreach ($fileFormat as $current_format)
-//    {
-//
-//        $path = $current_dir.sprintf($current_format, $className);
-//        if (file_exists($path))
-//        {
-//            //echo 'Encontrado' . $path;
-//            require_once $path;
-//            return ;
-//        }
-//    }
-//}
-//}
-//spl_autoload_register('autoload');
-
 
 TemplateEngine::setTemplatesPath(dirname(__FILE__).'/app/views/');
 //echo "<pre>".print_r($_POST,true)."</pre>";
@@ -87,15 +68,4 @@ $otherParams = isset($_REQUEST)?$_REQUEST:NULL;
 //echo "<a href='".__BASE_PATH__."products/show/1'>Raton fornite</a>";
 
 MainController::dispatchRequest($controllerName,$action,$param1,$param2, $otherParams);
-
-
-
-//require_once ('db/db.php');
-//require_once ('db/dbObject.php');
-//require_once("controllers/incidence_controller.php");
-//
-//
-//$controller = new incidence_controller();
-//
-//$controller->viewHome();
 

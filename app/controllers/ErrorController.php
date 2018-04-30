@@ -16,6 +16,6 @@ namespace Lookit\app\controllers;
 class ErrorController{
     
     public function index(){
-        require_once ('app/views/login_view.html');
+        echo "ERROR : ERROR CONTROLLER";
     }
 }

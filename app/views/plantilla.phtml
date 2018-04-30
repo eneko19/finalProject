@@ -187,12 +187,12 @@
           </li>
           <li class="nav-item text-right mr-3">
             <a class="nav-link dropdown-toggle text-light bg-secondary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Usuario
+                  <?= $values['usuario'][0]['usuario'] ?>
                 </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?= base_url()?>login/view"><i class="fas fa-user mr-3"></i>Mi cuenta</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt mr-3"></i>Salir</a>
+              <a class="dropdown-item" href="<?= base_url()?>login/logout"><i class="fas fa-sign-out-alt mr-3"></i>Salir</a>
             </div>
           </li>
         </ul>
@@ -214,7 +214,7 @@
   </nav>
   <div class="main-content">
         <div class="row bg-info p-2 mr-1 rounded">
-                <p class="m-0 mt-1"> <i class="fas fa-user mx-1"></i> <small>enekus19 (Eneko Gallego - administrador</small></p><!--<?= $values['username'] ?> ( <?= $values['user'] ?> - <?= $values['usertype'] ?>)-->
+                <p class="m-0 mt-1"> <i class="fas fa-user mx-1"></i> <small><?= $values['usuario'][0]['usuario'] ?> ( <?= $values['usuario'][0]['nombre'] ?> ) - <?= $values['usuario'][0]['id_tipousuario'] ?></small></p><!--<?= $values['username'] ?> ( <?= $values['user'] ?> - <?= $values['usertype'] ?>)-->
                 <form class="ml-auto" action="">
                     <div class="input-group mb-0">
                         <div class="input-group-prepend">
