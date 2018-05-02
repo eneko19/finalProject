@@ -32,7 +32,7 @@ class LoginController {
         //$password_encriptada = md5($password);
 
         $ok = $login->consultar_usuario();
-        if($ok){
+        if ($ok) {
             $_SESSION['usuario'] = $username;
         }
         $incidence = new IncidenceController();
@@ -48,8 +48,13 @@ class LoginController {
     public function view() {
 
         $template = new TemplateEngine('user');
+        $usuario = new LoginModel();
 
-        return $template->render();
+        $usu = $usuario->getUser();
+
+        $valores = ['usuario' => $usu];
+
+        return $template->pushValues($valores)->render();
     }
 
     /**

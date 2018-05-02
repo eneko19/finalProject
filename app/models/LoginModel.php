@@ -22,8 +22,7 @@ class LoginModel extends \dbObject {
         'id_tipousuario' => Array('int'),
     );
     protected $relations = Array(
-        'userId' => Array("hasOne", "user"),
-        'user' => Array("hasOne", "user", "userId")
+        'id_tipousuario' => Array("hasOne", "tipousuario",'id'),
     );
 
     // Functions
