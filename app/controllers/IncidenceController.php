@@ -23,7 +23,7 @@ class IncidenceController {
             'user' => 'Eneko Gallego',
                 //'usertype' => 'administrador'
         ];
-
+        //echo "<pre>".print_r($_SESSION['iduser'], 1)."</pre>";
 //        return (new TemplateEngine('home'))->assign('username', 'enekus19')
 //                        ->assign('user', 'Eneko Gallego')
 //                        ->assign('usertype', 'administrador')
@@ -38,10 +38,19 @@ class IncidenceController {
         $usu = $usuario->getUser();
         $incNoAsign = $incidencia->getIncNoAsign();
         $incReslt = $incidencia->getIncReslt();
+        $incAsignMi = $incidencia->getIncAsignMi();
+        $incModif = $incidencia->getIncModif();
 
-        $valores = ['usuario' => $usu, 'noAsign' => $incNoAsign, 'reslt' => $incReslt];
+        $valores = [
+            'usuario'   => $usu, 
+            'noAsign'   => $incNoAsign, 
+            'reslt'     => $incReslt, 
+            'asignMi'   => $incAsignMi,
+            'modif'     => $incModif
+            ];
 
         //echo "<pre>".print_r($template->pushValues($valores), 1)."</pre>";die;
+        
         return $template->pushValues($valores)->render();
     }
 

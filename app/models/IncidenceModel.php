@@ -53,15 +53,26 @@ class IncidenceModel extends \dbObject {
     }
     
     public function getIncNoAsign(){
-        
         $inc = IncidenceModel::ArrayBuilder()->where('id_usuasignada', NULL, 'IS')->get();
         
         return $inc;
     }
     public function getIncReslt(){
-        
         $inc = IncidenceModel::ArrayBuilder()->where('id_estado', 6)->get();
         
+        return $inc;
+    }
+    public function getIncAsignMi(){
+        $userAsign = $_SESSION['iduser'];
+        $inc = IncidenceModel::ArrayBuilder()->where('id_usuasignada', $userAsign)->get();
+        
+        return $inc;
+    }
+    public function getIncModif(){
+        $params = Array('now() - interval 5 day');
+        $fiveDaysAgo = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-d'))));
+        $inc = IncidenceModel::ArrayBuilder()->where('fechamodificacion', $fiveDaysAgo, '>=')->get();
+        //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
         return $inc;
     }
 

@@ -213,7 +213,7 @@
     </ul>
   </nav>
   <div class="main-content">
-        <div class="row bg-info p-2 mr-1 rounded">
+        <div class="row bg-info p-2 mr-1 rounded"><?php $_SESSION['iduser'] = $values['usuario'][0]['id_tipousuario']; ?>
                 <p class="m-0 mt-1"> <i class="fas fa-user mx-1"></i> <small><?= $values['usuario'][0]['usuario'] ?> ( <?= $values['usuario'][0]['nombre'] ?> ) - <?= $values['usuario'][0]['id_tipousuario'] ?></small></p><!--<?= $values['username'] ?> ( <?= $values['user'] ?> - <?= $values['usertype'] ?>)-->
                 <form class="ml-auto" action="">
                     <div class="input-group mb-0">
