@@ -16,11 +16,10 @@ class IncidenceController {
 
     // Functions
     public function index() {
-
         //die('wfwef');
-        $values = [
+        $values     = [
             'username' => 'enekus19',
-            'user' => 'Eneko Gallego',
+            'user'     => 'Eneko Gallego',
                 //'usertype' => 'administrador'
         ];
         //echo "<pre>".print_r($_SESSION['iduser'], 1)."</pre>";
@@ -31,62 +30,76 @@ class IncidenceController {
 //                return (new TemplateEngine('home'))->pushValues($values)
 //                        ->assign('usertype', 'administrador')
 //                        ->render();
-        $template = new TemplateEngine('home');
-        $usuario = new LoginModel();
+        $template   = new TemplateEngine('home');
+        $usuario    = new LoginModel();
         $incidencia = new IncidenceModel();
 
-        $usu = $usuario->getUser();
+        $usu        = $usuario->getUser();
         $incNoAsign = $incidencia->getIncNoAsign();
-        $incReslt = $incidencia->getIncReslt();
+        $incReslt   = $incidencia->getIncReslt();
         $incAsignMi = $incidencia->getIncAsignMi();
-        $incModif = $incidencia->getIncModif();
+        $incModif   = $incidencia->getIncModif();
+        $incRepMi   = $incidencia->getIncRepMi();
 
         $valores = [
-            'usuario'   => $usu, 
-            'noAsign'   => $incNoAsign, 
-            'reslt'     => $incReslt, 
-            'asignMi'   => $incAsignMi,
-            'modif'     => $incModif
-            ];
+            'usuario' => $usu,
+            'noAsign' => $incNoAsign,
+            'reslt'   => $incReslt,
+            'asignMi' => $incAsignMi,
+            'modif'   => $incModif,
+            'repMi'   => $incRepMi
+        ];
 
         //echo "<pre>".print_r($template->pushValues($valores), 1)."</pre>";die;
-        
+
         return $template->pushValues($valores)->render();
     }
 
     public function listar() {
         $template = new TemplateEngine('incidenceList');
-        $usuario = new LoginModel();
+        $usuario  = new LoginModel();
+        $inci     = new IncidenceModel();
 
-        $usu = $usuario->getUser();
+        $usu    = $usuario->getUser();
+        $allInc = $inci->getIncAll();
 
-        $valores = ['usuario' => $usu];
+        $valores = [
+            'usuario'     => $usu,
+            'incidencias' => $allInc
+        ];
 
 
         return $template->pushValues($valores)->render();
     }
 
     public function show() {
+        $id       = func_get_arg(0);
+        //echo "<pre>".print_r($id, 1)."</pre>";die;
         $template = new TemplateEngine('incidence');
-        $usuario = new LoginModel();
+        $usuario  = new LoginModel();
+        $inci     = new IncidenceModel();
 
         $usu = $usuario->getUser();
+        $inc = $inci->getInc($id);
 
-        $valores = ['usuario' => $usu];
+        $valores = [
+            'usuario'    => $usu,
+            'incidencia' => $inc
+        ];
 
-
+        //echo "<pre>" . print_r($valores, 1) . "</pre>";die;
         return $template->pushValues($valores)->render();
     }
 
     public function add() {
-        $template = new TemplateEngine('incidenceAdd');
+        $template  = new TemplateEngine('incidenceAdd');
         $categoria = new CategoriaModel();
         $prioridad = new PrioridadModel();
-        $usuario = new LoginModel();
+        $usuario   = new LoginModel();
 
-        $cat = $categoria->showCategories();
+        $cat  = $categoria->showCategories();
         $prio = $prioridad->showPriority();
-        $usu = $usuario->getUser();
+        $usu  = $usuario->getUser();
 
         $valores = ['categoria' => $cat, 'prioridad' => $prio, 'usuario' => $usu];
 
@@ -97,11 +110,11 @@ class IncidenceController {
     public function insert() {
         $incidencia = new IncidenceModel();
 
-        $asunto = $_POST['asunto'];
-        $descripcion = $_POST['descripcion'];
+        $asunto         = $_POST['asunto'];
+        $descripcion    = $_POST['descripcion'];
         $id_usucreacion = $_POST['usucreacion'];
-        $categoria = $_POST['categoria'];
-        $prioridad = $_POST['prioridad'];
+        $categoria      = $_POST['categoria'];
+        $prioridad      = $_POST['prioridad'];
 
         $incidencia->insertInc($asunto, $descripcion, $id_usucreacion, $categoria, $prioridad);
     }

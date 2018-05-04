@@ -53,7 +53,7 @@
     </div>
     <div class="row login-container mt-3 p-4">
       <h5 class="header w-100"><i class="fas fa-pencil-alt mr-2"></i>Registrarse</h5>
-      <form class="w-100" action="index.html" method="post">
+      <form class="w-100" action="<?= base_url() ?>login/registerUser" method="post">
         <!-- Username -->
         <div class="col-12 mb-3">
           <div class="input-group">
@@ -114,7 +114,7 @@
           </div>
         </div>
 
-        <a href="#" class="btn btn-dark float-right">Registrarse</a>
+        <button href="#" type="submit" class="btn btn-dark float-right">Registrarse</button>
       </form>
     </div>
     <div class="row register-container">

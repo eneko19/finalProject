@@ -53,7 +53,7 @@ class IncidenceModel extends \dbObject {
     }
     
     public function getIncNoAsign(){
-        $inc = IncidenceModel::ArrayBuilder()->where('id_usuasignada', NULL, 'IS')->get();
+        $inc = IncidenceModel::ArrayBuilder()->where('id_usuasignada', NULL, 'IS')->get(Array (0, 5));
         
         return $inc;
     }
@@ -68,10 +68,25 @@ class IncidenceModel extends \dbObject {
         
         return $inc;
     }
+    public function getIncRepMi(){
+        $userAsign = $_SESSION['iduser'];
+        $inc = IncidenceModel::ArrayBuilder()->where('id_usucreacion', $userAsign)->get();
+        
+        return $inc;
+    }
     public function getIncModif(){
-        $params = Array('now() - interval 5 day');
         $fiveDaysAgo = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-d'))));
-        $inc = IncidenceModel::ArrayBuilder()->where('fechamodificacion', $fiveDaysAgo, '>=')->get();
+        $inc = IncidenceModel::ArrayBuilder()->where('fechamodificacion', $fiveDaysAgo, '>=')->orderBy("fechamodificacion","desc")->get();
+        //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
+        return $inc;
+    }
+    public function getIncAll(){
+        $inc = IncidenceModel::ArrayBuilder()->orderBy("fechamodificacion","desc")->get();
+        //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
+        return $inc;
+    }
+    public function getInc($id){
+        $inc = IncidenceModel::ArrayBuilder()->where('id', $id)->get();
         //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
         return $inc;
     }

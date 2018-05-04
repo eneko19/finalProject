@@ -1,69 +1,70 @@
 <!DOCTYPE html>
 <html>
     <head>
-     <?php require_once('app/views/plantilla.phtml'); ?>
+        <?php require_once('app/views/plantilla.phtml'); ?>
 
-        <ul class="nav nav-tabs mt-3 font-weight-bold" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="home" aria-selected="true">Mi cuenta</a>
-            </li>
-            <li class="nav-item" disabled="disabled">
-                <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Preferencias</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contactos</a>
-            </li>
-        </ul>
-        <div class="tab-content mt-2 mr-4 " id="myTabContent">
-            <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
+    <ul class="nav nav-tabs mt-3 font-weight-bold" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="home" aria-selected="true">Mi cuenta</a>
+        </li>
+        <li class="nav-item" disabled="disabled">
+            <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Preferencias</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contactos</a>
+        </li>
+    </ul>
+    <div class="tab-content mt-2 mr-4 " id="myTabContent">
+        <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
+            <form method="POST" action="<?= base_url() ?>login/update">
                 <div class="card border-primary">
                     <h5 class="card-header bg-primary text-light"><i class="fas fa-user mr-2"></i>Editar cuenta</h5>
                     <div class="card-body p-0">
                         <table class="table table-striped table-bordered m-0">
-                            <form method="POST" action="">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Nombre de usuario</th>
-                                        <td>enekus19</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Contraseña actual</th>
-                                        <td><input type="email" class="form-control" id="passActual"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Constraseña nueva</th>
-                                        <td><input type="email" class="form-control" id="passNueva"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Confirmar contraseña</th>
-                                        <td><input type="email" class="form-control" id="passNuevaConf"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Correo electrónico</th>
-                                        <td><input type="email" class="form-control" id="email" placeholder="correo@correo.com"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Nombre real</th>
-                                        <td><input type="email" class="form-control" id="nombre" placeholder="Nombre"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Nivel de acceso</th>
-                                        <td>informador</td>
-                                    </tr>                                
-                                </tbody>
-                            </form>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Nombre de usuario</th>
+                                    <td><?= $values['usuario'][0]['usuario'] ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Contraseña actual</th>
+                                    <td><input type="text" class="form-control" id="passActual" name="passActual"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Constraseña nueva</th>
+                                    <td><input type="text" class="form-control" id="passNueva" name="passNueva"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Confirmar contraseña</th>
+                                    <td><input type="text" class="form-control" id="passNuevaConf" name="passNuevaConf"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Correo electrónico</th>
+                                    <td><input type="email" class="form-control" id="email" name="email" value="<?= $values['usuario'][0]['email'] ?>"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Nombre real</th>
+                                    <td><input type="text" class="form-control" id="nombre" name="nombre" value="<?= $values['usuario'][0]['nombre'] ?>"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Nivel de acceso</th>
+                                    <td>informador</td>
+                                </tr>                                
+                            </tbody>
+
                         </table>
                     </div>
                     <div class="card-footer">
-                       <button type="submit" class="btn btn-light border-primary">Actualizar usuario</button>
+                        <button type="submit" class="btn btn-light border-primary">Actualizar usuario</button>
                     </div>
                 </div>
+            </form>
 
-            </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
         </div>
-
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
     </div>
+
+</div>
 </body>
 </html>

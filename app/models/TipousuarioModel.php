@@ -10,18 +10,15 @@ namespace Lookit\app\models;
 
 class TipousuarioModel extends \dbObject {
 
-    protected $dbTable = "usuario";
+    protected $dbTable    = "usuario";
     protected $primaryKey = "id";
-    protected $dbFields = Array(
-        'id' => Array('int'),
+    protected $dbFields   = Array(
+        'id'     => Array('int'),
         'nombre' => Array('text'),
     );
-    
     protected $relations = Array(
-        'id' => Array("hasOne", "usuario",'id_tipousuario'),
+        'usuario' => Array("hasOne", "id", 'id_tipousuario'),
     );
 
     // Functions
-
-
 }

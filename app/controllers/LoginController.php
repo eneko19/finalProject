@@ -56,6 +56,26 @@ class LoginController {
 
         return $template->pushValues($valores)->render();
     }
+    public function update() {
+        $usuario = new LoginModel();
+        
+        $oldPassword = $_POST['passActual'];
+        $newPassword = $_POST['passNuevaConf'];
+        $email = $_POST['email'];
+        $name = $_POST['nombre'];
+        
+        $usuario->updateUser($oldPassword, $newPassword, $email, $name);
+    }
+    public function registerUser() {
+        $usuario = new LoginModel();
+        
+        $user = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $name = $_POST['name'];
+        
+        $usuario->registerUser($user, $password, $email, $name);
+    }
 
     /**
      * Finaliza la sesión de usuario
