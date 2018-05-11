@@ -73,6 +73,14 @@
             <div class="invalid-feedback">
               Please choose a password.
             </div>
+            
+            <?php if(isset($values['loginFailure']) && $values['loginFailure']>0){ ?>
+            <div class="invalid-feedback">
+              FAILED LOGIN ATTEMPTS: <?= $values['loginFailure'] ?>. You have <?= (5-$values['loginFailure']) ?> more attempt(s). 
+              
+            </div>
+            <?php } ?>
+            
           </div>
         </div>
 

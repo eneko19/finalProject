@@ -21,6 +21,11 @@ class LoginController {
         //return $this->login();
         $template = new TemplateEngine('login');
 
+        if (isset($_SESSION['failureLogin'])) {
+            $valores = ['loginFailure' => $_SESSION['failureLogin']];
+            return $template->pushValues($valores)->render();
+        }
+
         return $template->render();
     }
 
@@ -34,9 +39,15 @@ class LoginController {
         $ok = $login->consultar_usuario();
         if ($ok) {
             $_SESSION['usuario'] = $username;
+            unset($_SESSION['failureLogin']);
+        } else {
+            $_SESSION['failureLogin'] += 1;
         }
+
         $incidence = new IncidenceController();
-        return $incidence->index();
+
+        $url = base_url() . '';
+        header('Location:' . $url . '');
     }
 
     public function register() {
@@ -48,7 +59,7 @@ class LoginController {
     public function view() {
 
         $template = new TemplateEngine('user');
-        $usuario = new LoginModel();
+        $usuario  = new LoginModel();
 
         $usu = $usuario->getUser();
 
@@ -56,25 +67,30 @@ class LoginController {
 
         return $template->pushValues($valores)->render();
     }
+
     public function update() {
         $usuario = new LoginModel();
-        
+
         $oldPassword = $_POST['passActual'];
         $newPassword = $_POST['passNuevaConf'];
-        $email = $_POST['email'];
-        $name = $_POST['nombre'];
-        
+        $email       = $_POST['email'];
+        $name        = $_POST['nombre'];
+
         $usuario->updateUser($oldPassword, $newPassword, $email, $name);
     }
+
     public function registerUser() {
         $usuario = new LoginModel();
-        
-        $user = $_POST['username'];
+
+        $user     = $_POST['username'];
         $password = $_POST['password'];
-        $email = $_POST['email'];
-        $name = $_POST['name'];
-        
+        $email    = $_POST['email'];
+        $name     = $_POST['name'];
+
         $usuario->registerUser($user, $password, $email, $name);
+        
+        $url = base_url().'';
+        header('Location:'. $url .'');
     }
 
     /**
@@ -83,7 +99,9 @@ class LoginController {
     function logout() {
         // Borra contingut de $_SESSION
         unset($_SESSION['usuario']);
-        // elimina la sessio
+
+        $url = base_url() . '';
+        header('Location:' . $url . '');
     }
 
 }

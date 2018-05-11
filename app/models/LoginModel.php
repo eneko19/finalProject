@@ -1,7 +1,7 @@
 <?php
 
 namespace Lookit\app\models;
-
+require_once ('TipousuarioModel.php');
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,7 +13,6 @@ class LoginModel extends \dbObject {
     protected $dbTable    = "usuario";
     protected $primaryKey = "id";
     protected $dbFields   = Array(
-        'id'             => Array('int'),
         'usuario'        => Array('text'),
         'password'       => Array('text'),
         'email'          => Array('text'),
@@ -22,7 +21,7 @@ class LoginModel extends \dbObject {
         'id_tipousuario' => Array('int'),
     );
     protected $relations  = Array(
-        'tipousuario' => Array("hasOne", "id_tipousuario", 'id'),
+        'tipousuario' => Array("hasOne",'Lookit\app\models\TipousuarioModel', 'id_tipousuario'),
     );
 
     // Functions
@@ -40,9 +39,14 @@ class LoginModel extends \dbObject {
         $usuario = $_SESSION['usuario'];
 //         $prueba = LoginModel::with('tipousuario')->byId();
 //         echo "<pre>".print_r($prueba, 1)."</pre>";die;
-        $login   = LoginModel::ArrayBuilder()->where('usuario', $usuario)->get();
-        //echo "<pre>".print_r($login, 1)."</pre>";
-
+        
+        $login  = LoginModel::with('tipousuario')->where('usuario', $usuario)->getOne();
+//        if($login instanceof LoginModel){
+//            //echo "<pre>".print_r($login->tipousuario->nombre, 1)."</pre>";die;
+//            
+//        }else{
+//            die("NOT LOGIN-> show error message failure login");
+//        }
         return $login;
     }
 

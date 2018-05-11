@@ -117,6 +117,16 @@ class IncidenceController {
         $prioridad      = $_POST['prioridad'];
 
         $incidencia->insertInc($asunto, $descripcion, $id_usucreacion, $categoria, $prioridad);
+        
+        $url = base_url().'';
+        header('Location:'. $url .'');
+    }
+
+    public function search() {
+        $idIncidencia = $_POST['idInci'];
+
+        $url = base_url().'incidence/show/'.$idIncidencia.'';
+        header('Location:'. $url .'');
     }
 
 }
