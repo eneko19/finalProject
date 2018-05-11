@@ -22,6 +22,9 @@ class LoginModel extends \dbObject {
     );
     protected $relations  = Array(
         'tipousuario' => Array("hasOne",'Lookit\app\models\TipousuarioModel', 'id_tipousuario'),
+        'inciCreacion' => Array("hasMany",'Lookit\app\models\IncidenceModel', 'id_usucreacion'),
+        'inciAsginada' => Array("hasMany",'Lookit\app\models\IncidenceModel', 'id_usuasignada'),
+        
     );
 
     // Functions

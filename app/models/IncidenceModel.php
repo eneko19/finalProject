@@ -25,8 +25,11 @@ class IncidenceModel extends \dbObject {
         'id_estado' => Array('int')
     );
     protected $relations = Array(
-        'userId' => Array("hasOne", "user"),
-        'user' => Array("hasOne", "user", "userId")
+        'usuarioCreacion' => Array("hasOne", "Lookit\app\models\LoginModel", "id_usucreacion"),
+        'usuarioAsignado' => Array("hasOne", "Lookit\app\models\LoginModel", "id_usuasignada"),
+        'categoria' => Array("hasOne", "Lookit\app\models\CategoriaModel", "id_categoria"),
+        'prioridad' => Array("hasOne", "Lookit\app\models\PrioridadModel", "id_prioridad"),
+        'estado' => Array("hasOne", "Lookit\app\models\estado", "id_estado"),
     );
 
     // Functions
@@ -58,7 +61,14 @@ class IncidenceModel extends \dbObject {
         return $inc;
     }
     public function getIncReslt(){
-        $inc = IncidenceModel::ArrayBuilder()->where('id_estado', 6)->get();
+        //$inc = IncidenceModel::ArrayBuilder()->where('id_estado', 6)->get();
+        //$inc = IncidenceModel::with('usuarioCreacion')->get();
+       $inc = IncidenceModel::where('id_estado', 6)->get();
+        foreach ($inc as $i) {
+            echo "ASSUNTO: {$i->asunto} => UC:{$i->usuarioCreacion->nombre} UA: {$i->usuarioAsignado->nombre}<br><br>";
+        }
+        
+        echo "<pre>".print_r($inc, 1)."</pre>";die;
         
         return $inc;
     }

@@ -31,11 +31,21 @@ class LoginController {
 
     public function login() {
         $login = new LoginModel();
-
+        
         $username = !empty($_POST['username']) ? $_POST['username'] : "";
         $password = !empty($_POST['password']) ? $_POST['password'] : "";
         //$password_encriptada = md5($password);
 
+        if (empty($_POST['username']) || empty($_POST['password']) ) {
+            $template = new TemplateEngine('login');
+            $valores = [
+                'userempty' => empty($_POST['username']),
+                'passempty' => empty($_POST['password'])        
+             ];
+            return $template->pushValues($valores)->render();
+        }
+        
+        
         $ok = $login->consultar_usuario();
         if ($ok) {
             $_SESSION['usuario'] = $username;
