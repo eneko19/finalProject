@@ -2,7 +2,6 @@
 
 namespace Lookit\app\controllers;
 
-use Lookit\app\models\LoginModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

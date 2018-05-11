@@ -1,7 +1,6 @@
 <?php
 
 namespace Lookit\app\models;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,8 +20,9 @@ class LoginModel extends \dbObject {
         'fechacreacion'  => Array('datetime'),
         'id_tipousuario' => Array('int'),
     );
+    
     protected $relations  = Array(
-        'tipousuario' => Array("hasOne", "id_tipousuario", 'id'),
+        'tipousuarioUsu' => Array("hasOne", 'TipousuarioModel' , 'id'),
     );
 
     // Functions
