@@ -24,7 +24,7 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Nombre de usuario</th>
-                                    <td><?= $values['usuario'][0]['usuario'] ?></td>
+                                    <td><?= $values['usuario']->usuario ?></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Contraseña actual</th>
@@ -40,11 +40,11 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">Correo electrónico</th>
-                                    <td><input type="email" class="form-control" id="email" name="email" value="<?= $values['usuario'][0]['email'] ?>"></td>
+                                    <td><input type="email" class="form-control" id="email" name="email" value="<?= $values['usuario']->email ?>"></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Nombre real</th>
-                                    <td><input type="text" class="form-control" id="nombre" name="nombre" value="<?= $values['usuario'][0]['nombre'] ?>"></td>
+                                    <td><input type="text" class="form-control" id="nombre" name="nombre" value="<?= $values['usuario']->nombre ?>"></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Nivel de acceso</th>

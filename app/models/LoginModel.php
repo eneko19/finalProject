@@ -1,6 +1,8 @@
 <?php
 
 namespace Lookit\app\models;
+
+require_once ('TipousuarioModel.php');
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,30 +11,28 @@ namespace Lookit\app\models;
 
 class LoginModel extends \dbObject {
 
-    protected $dbTable    = "usuario";
+    protected $dbTable = "usuario";
     protected $primaryKey = "id";
-    protected $dbFields   = Array(
-        'id'             => Array('int'),
-        'usuario'        => Array('text'),
-        'password'       => Array('text'),
-        'email'          => Array('text'),
-        'nombre'         => Array('text'),
-        'fechacreacion'  => Array('datetime'),
+    protected $dbFields = Array(
+        'usuario' => Array('text'),
+        'password' => Array('text'),
+        'email' => Array('text'),
+        'nombre' => Array('text'),
+        'fechacreacion' => Array('datetime'),
         'id_tipousuario' => Array('int'),
     );
-    
-    protected $relations  = Array(
-        'tipousuarioUsu' => Array("hasOne", 'TipousuarioModel' , 'id'),
+    protected $relations = Array(
+        'tipousuario' => Array("hasOne", 'Lookit\app\models\TipousuarioModel', 'id_tipousuario'),
+        'inciCreacion' => Array("hasMany", 'Lookit\app\models\IncidenceModel', 'id_usucreacion'),
+        'inciAsginada' => Array("hasMany", 'Lookit\app\models\IncidenceModel', 'id_usuasignada'),
     );
 
     // Functions
-
     public function consultar_usuario() {
-        $usuario  = $_POST['username'];
+        $usuario = $_POST['username'];
         $password = $_POST['password'];
-        $login    = LoginModel::ArrayBuilder()->where('usuario', $usuario)->where('password', $password)->get();
+        $login = LoginModel::ArrayBuilder()->where('usuario', $usuario)->where('password', $password)->get();
         //echo "<pre>".print_r($login, 1)."</pre>";
-
         return $login;
     }
 
@@ -40,24 +40,28 @@ class LoginModel extends \dbObject {
         $usuario = $_SESSION['usuario'];
 //         $prueba = LoginModel::with('tipousuario')->byId();
 //         echo "<pre>".print_r($prueba, 1)."</pre>";die;
-        $login   = LoginModel::ArrayBuilder()->where('usuario', $usuario)->get();
-        //echo "<pre>".print_r($login, 1)."</pre>";
 
+        $login = LoginModel::with('tipousuario')->where('usuario', $usuario)->getOne();
+//        if($login instanceof LoginModel){
+//            //echo "<pre>".print_r($login->tipousuario->nombre, 1)."</pre>";die;
+//            
+//        }else{
+//            die("NOT LOGIN-> show error message failure login");
+//        }
         return $login;
     }
 
     public function updateUser($oldPassword, $newPassword, $email, $name) {
         $usuario = $_SESSION['usuario'];
-
         if ($oldPassword == '') {
             $data = Array(
                 'password' => $newPassword,
-                'email'    => $email,
-                'nombre'   => $name
+                'email' => $email,
+                'nombre' => $name
             );
         } else {
             $data = Array(
-                'email'  => $email,
+                'email' => $email,
                 'nombre' => $name
             );
         }
@@ -71,21 +75,20 @@ class LoginModel extends \dbObject {
     }
 
     public function registerUser($user, $password, $email, $name) {
-        $data    = Array(
-            'usuario'        => $user,
-            'password'       => $password,
-            'email'          => $email,
-            'nombre'         => $name,
+        $data = Array(
+            'usuario' => $user,
+            'password' => $password,
+            'email' => $email,
+            'nombre' => $name,
             'id_tipousuario' => 1,
         );
         //echo "<pre>".print_r($data, 1)."</pre>";die;
-        $user    = new LoginModel($data);
+        $user = new LoginModel($data);
         $newUser = $user->save();
-        
+
         if ($newUser == null) {
             print_r($user->errors);
         }
-
         return $newUser;
     }
 

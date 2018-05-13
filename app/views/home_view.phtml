@@ -16,14 +16,14 @@
                 <?php foreach ($values['noAsign'] as $inci) {        ?>
                     <tr>
                         <td scope="row">
-                          <a href="<?= base_url()?>incidence/show/<?= $inci['id'] ?>"><?= $inci['id'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
-                          P<?= $inci['id_prioridad'] ?>E<?= $inci['id_estado'] ?>A
+                          <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
                         <td>
-                          <a href="#"><?= $inci['asunto'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
-                          <small><?= $inci['id_categoria'] ?> - <?= $inci['fechacreacion'] ?></small>
+                          <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
                         </td>
                     </tr>
                 <?php } }else{ ?> 
@@ -49,14 +49,14 @@
                 <?php foreach ($values['repMi'] as $inci) {        ?>
                     <tr>
                         <td scope="row">
-                          <a href="<?= base_url()?>incidence/show/<?= $inci['id'] ?>"><?= $inci['id'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
-                          P<?= $inci['id_prioridad'] ?>E<?= $inci['id_estado'] ?>A
+                          <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
                         <td>
-                          <a href="#"><?= $inci['asunto'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
-                          <small><?= $inci['id_categoria'] ?> - <?= $inci['fechacreacion'] ?></small>
+                          <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
                         </td>
                     </tr>
                 <?php } }else{ ?> 
@@ -82,14 +82,14 @@
                 <?php foreach ($values['reslt'] as $inci) {        ?>
                     <tr>
                         <td scope="row">
-                          <a href="<?= base_url()?>incidence/show/<?= $inci['id'] ?>"><?= $inci['id'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
-                          P<?= $inci['id_prioridad'] ?>E<?= $inci['id_estado'] ?>A
+                          <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
                         <td>
-                          <a href="#"><?= $inci['asunto'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
-                          <small><?= $inci['id_categoria'] ?> - <?= $inci['fechacreacion'] ?></small>
+                          <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
                         </td>
                     </tr>
                 <?php } }else{ ?> 
@@ -115,14 +115,14 @@
                 <?php foreach ($values['modif'] as $inci) {        ?>
                     <tr>
                         <td scope="row">
-                          <a href="<?= base_url()?>incidence/show/<?= $inci['id'] ?>"><?= $inci['id'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
-                          P<?= $inci['id_prioridad'] ?>E<?= $inci['id_estado'] ?>A
+                          <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
                         <td>
-                          <a href="#"><?= $inci['asunto'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
-                          <small><?= $inci['id_categoria'] ?> - <?= $inci['fechacreacion'] ?></small>
+                          <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
                         </td>
                     </tr>
                 <?php } }else{ ?> 
@@ -141,29 +141,35 @@
             <a href="#" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
           </div>
           <div id="asignMi" class="collapse show" data-parent="#accordion">
-                <?php if(!empty($values['asignMi'])){ ?>
-                <?php foreach ($values['asignMi'] as $inci) {        ?>
+            <div class="card-body p-0">
+                <table class="table table-striped table-sm table-bordered m-0">
+                <tbody>
+                <?php if(!empty($values['modif'])){ ?>
+                <?php foreach ($values['modif'] as $inci) {        ?>
                     <tr>
                         <td scope="row">
-                          <a href="<?= base_url()?>incidence/show/<?= $inci['id'] ?>"><?= $inci['id'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
-                          P<?= $inci['id_prioridad'] ?>E<?= $inci['id_estado'] ?>A
+                          <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
                         <td>
-                          <a href="#"><?= $inci['asunto'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
-                          <small><?= $inci['id_categoria'] ?> - <?= $inci['fechacreacion'] ?></small>
+                          <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
                         </td>
                     </tr>
                 <?php } }else{ ?> 
                 <div class="m-4"></div>
                     <?php } ?>
+                </tbody>
+              </table>
+            </div>
             </div>
           </div>
         </div>
 
         <div class="col-md-12 col-lg-5">
-          <div class="card border border-primary my-3">
+          <div class="card border border-primary mt-2">
             <div class="card-header bg-primary text-light p-1 ">
               <h5 class="d-inline-block"><i class="far fa-clock"></i> Línea de tiempo <span class="badge badge-secondary"><small>1-6 / 1000</small></span></h5>
               <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#linTiempo"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
@@ -172,20 +178,23 @@
             <div class="card-body p-0">
                 <table class="table table-striped table-sm table-bordered m-0">
                 <tbody>
+                <?php if(!empty($values['modif'])){ ?>
                 <?php foreach ($values['modif'] as $inci) {        ?>
                     <tr>
                         <td scope="row">
-                          <a href="<?= base_url()?>incidence/show/<?= $inci['id'] ?>"><?= $inci['id'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->id ?></a>
                           <br>
-                          P<?= $inci['id_prioridad'] ?>E<?= $inci['id_estado'] ?>A
+                          <?= $inci->prioridad->nombre ?>  <?= $inci->estado->nombre ?> Arc
                         </td>
                         <td>
-                          <a href="#"><?= $inci['asunto'] ?></a>
+                          <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
-                          <small><?= $inci['id_categoria'] ?> - <?= $inci['fechacreacion'] ?></small>
+                          <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
                         </td>
                     </tr>
-                  <?php } ?>
+                <?php } }else{ ?> 
+                <div class="m-4"></div>
+                    <?php } ?>
                 </tbody>
               </table>
             </div>

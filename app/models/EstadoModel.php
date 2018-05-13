@@ -10,22 +10,18 @@ use dbObject;
  * and open the template in the editor.
  */
 
-class PrioridadModel extends \dbObject {
+class EstadoModel extends \dbObject {
 
-    protected $dbTable = "prioridad";
+    protected $dbTable = "estado";
     protected $primaryKey = "id";
     protected $dbFields = Array(
         'nombre' => Array('text')
     );
+    
     protected $relations = Array(
-        'incidencia' => Array("hasMany", "Lookit\app\models\IncidenceModel", "id_prioridad"),
+        'incidencia' => Array("hasMany", "Lookit\app\models\IncidenceModel", "id_estado"),
     );
 
-    function showPriority() {
-
-        $prio = PrioridadModel::ArrayBuilder()->get();
-        //echo "<pre>".print_r($cat, 1)."</pre>";die;
-        return $prio;
-    }
+    // Functions
 
 }

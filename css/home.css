@@ -1,0 +1,172 @@
+.navbar-global {
+    background-color: #222;
+}
+.navbar-global .navbar-brand {
+    color: white;
+}
+.navbar-global .navbar-user>li>a {
+    color: white;
+}
+.navbar-primary {
+    background-color: #DBDBDB;
+    bottom: 0px;
+    left: 0px;
+    position: fixed;
+    top: 64px;
+    width: 130px;
+    z-index: 8;
+    overflow: hidden;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+.navbar-primary.collapsed {
+    width: 60px;
+}
+.navbar-primary.collapsed .glyphicon {
+    font-size: 22px;
+}
+.navbar-primary.collapsed .nav-label {
+    display: none;
+}
+.btn-expand-collapse {
+    position: absolute;
+    display: block;
+    /* left: 0px;
+    bottom: 0; */
+    width: 100%;
+    padding: 8px 0;
+    color: grey;
+    font-size: 20px;
+    text-align: center;
+}
+.btn-expand-collapse:hover,
+.btn-expand-collapse:focus {
+}
+.btn-expand-collapse:active {
+    background-color: #111;
+}
+.navbar-primary-menu,
+.navbar-primary-menu li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.navbar-primary-menu li a {
+    display: block;
+    padding: 10px 0px;
+    text-align: center;
+    border-bottom: solid 1px #fff;
+    color: #393939;
+}
+.navbar-primary-menu li a:hover {
+    background-color: #E3E3E3;
+    text-decoration: none;
+    color: #337ab7;
+    border: 1px solid #337ab7;
+}
+.navbar-primary-menu li a .glyphicon {
+    margin-right: 6px;
+}
+.navbar-primary-menu li a:hover .glyphicon {
+    color: orchid;
+}
+.main-content {
+    margin-top: 65px;
+    margin-left: 150px;
+    padding: 10px;
+}
+.collapsed+.main-content {
+    margin-left: 80px;
+}
+/**Bg-info**/
+.bg-info {
+    background-color: #E7F2F8 !important
+}
+a.bg-info:focus,
+a.bg-info:hover,
+button.bg-info:focus,
+button.bg-info:hover {
+    background-color: #E7F2F8 !important
+}
+/**End bg-info**/
+/**Dropdown menu**/
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: auto;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: black;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(216, 27, 27, 0.15);
+    border-radius: .25rem;
+}
+/**END**/
+.collapseCard{
+    font-size:30px;
+}
+li a{
+    font-size: 14px;
+}
+/*Cursor disabled*/
+.disabled{
+    cursor: no-drop;
+}
+/*Espacio entre tablas*/
+tr.spacer {
+    background-color: #ffffff !important;
+    color: #000000;
+    height: 10px;
+}
+/*Tamaño de letra de tabla timeline*/
+.lTime{
+    font-size: 12px!important;
+}
+.table-info{
+    background-color: #edf3f4;
+}
+
+/*Color estado nueva*/
+.estado-1-color {
+    color: #fcbdbd;
+    background-color: #fcbdbd;
+}
+/*Color estado se necesitan mas datos*/
+.estado-2-color {
+    color: #e3b7eb;
+    background-color: #e3b7eb;
+}
+/*Color estado aceptada*/
+.estado-3-color {
+    color: #ffcd85;
+    background-color: #ffcd85;
+}
+/*Color estado confirmada*/
+.estado-4-color {
+    color: #fff494;
+    background-color: #fff494;
+}
+/*Color estado asignada*/
+.estado-5-color {
+    color: #c2dfff;
+    background-color: #c2dfff;
+}
+/*Color estado resuelta*/
+.estado-6-color {
+    color: #d2f5b0;
+    background-color: #d2f5b0;
+}
+/*Color estado cerrada*/
+.estado-7-color {
+    color: #c9ccc4;
+    background-color: #c9ccc4;
+}
