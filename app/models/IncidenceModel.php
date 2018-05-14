@@ -56,35 +56,35 @@ class IncidenceModel extends \dbObject {
     }
 
     public function getIncNoAsign() {
-        $inc = IncidenceModel::with('usuarioCreacion')->with('usuarioAsignado')->where('id_usuasignada', NULL, 'IS')->get(Array(0, 5));
+        $inc = IncidenceModel::where('id_usuasignada', NULL, 'IS')->get(Array(0, 5));
 
         return $inc;
     }
 
     public function getIncReslt() {
         //$inc = IncidenceModel::ArrayBuilder()->where('id_estado', 6)->get();
-          $inc = IncidenceModel::with('usuarioCreacion')->with('usuarioAsignado')->where('id_estado', 6)->get(Array(0, 5));
+          $inc = IncidenceModel::where('id_estado', 6)->get(Array(0, 5));
 
         return $inc;
     }
 
     public function getIncAsignMi() {
         $userAsign = $_SESSION['iduser'];
-        $inc = IncidenceModel::with('usuarioCreacion')->with('usuarioAsignado')->where('id_usuasignada', $userAsign)->get(Array(0, 5));
+        $inc = IncidenceModel::where('id_usuasignada', $userAsign)->get(Array(0, 5));
 
         return $inc;
     }
 
     public function getIncRepMi() {
         $userAsign = $_SESSION['iduser'];
-        $inc = IncidenceModel::with('usuarioCreacion')->with('usuarioAsignado')->where('id_usucreacion', $userAsign)->get(Array(0, 5));
+        $inc = IncidenceModel::where('id_usucreacion', $userAsign)->get(Array(0, 5));
 
         return $inc;
     }
 
     public function getIncModif() {
         $fiveDaysAgo = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-d'))));
-        $inc = IncidenceModel::with('usuarioCreacion')->with('usuarioAsignado')->where('fechamodificacion', $fiveDaysAgo, '>=')->orderBy("fechamodificacion", "desc")->get(Array(0, 5));
+        $inc = IncidenceModel::where('fechamodificacion', $fiveDaysAgo, '>=')->orderBy("fechamodificacion", "desc")->get(Array(0, 5));
         //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
         return $inc;
     }
@@ -96,8 +96,9 @@ class IncidenceModel extends \dbObject {
     }
 
     public function getInc($id) {
-        $inc = IncidenceModel::ArrayBuilder()->where('id', $id)->get();
+        $inc = IncidenceModel::where('id', $id)->getOne();
         //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
+        
         return $inc;
     }
 

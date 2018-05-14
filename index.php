@@ -53,16 +53,19 @@ TemplateEngine::setTemplatesPath(dirname(__FILE__).'/app/views/');
 //echo "<br>============================================<br>";
 
 //echo "<pre>".print_r($_SERVER,true)."</pre>";
-
+$curDir = explode(DIRECTORY_SEPARATOR,dirname(__FILE__));
 $requestParams=explode("/",$_SERVER['REDIRECT_URL']);
 
+$appDir         = end($curDir);
+//get postion of app dir in $requestParams
+$pos = array_search($appDir, $requestParams);
 //echo "<pre>".print_r($requestParams,true)."</pre>";
 
 
-$controllerName= isset($requestParams[2])?$requestParams[2]:NULL;
-$action = isset($requestParams[3])?$requestParams[3]:NULL;
-$param1 =isset($requestParams[4])?$requestParams[4]:NULL;
-$param2 = isset($requestParams[5])?$requestParams[5]:NULL;
+$controllerName= isset($requestParams[$pos+1])?$requestParams[$pos+1]:NULL;
+$action = isset($requestParams[$pos+2])?$requestParams[$pos+2]:NULL;
+$param1 =isset($requestParams[$pos+3])?$requestParams[$pos+3]:NULL;
+$param2 = isset($requestParams[$pos+4])?$requestParams[$pos+4]:NULL;
 $otherParams = isset($_REQUEST)?$_REQUEST:NULL;
 
 //echo "<a href='".__BASE_PATH__."products/show/1'>Raton fornite</a>";

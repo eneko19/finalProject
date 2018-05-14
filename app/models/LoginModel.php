@@ -80,7 +80,7 @@ class LoginModel extends \dbObject {
             'password' => $password,
             'email' => $email,
             'nombre' => $name,
-            'id_tipousuario' => 1,
+            'id_tipousuario' => 2,
         );
         //echo "<pre>".print_r($data, 1)."</pre>";die;
         $user = new LoginModel($data);

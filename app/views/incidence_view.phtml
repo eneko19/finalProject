@@ -16,21 +16,21 @@
         <tr class="">
           <td>000025</td>
           <td>Administración</td>
-          <td><?= $values['incidencia'][0]['fechacreacion'] ?></td>
-          <td><?= $values['incidencia'][0]['fechamodificacion'] ?></td>
+          <td><?= $values['incidencia']->fechacreacion ?></td>
+          <td><?= $values['incidencia']->fechamodificacion ?></td>
         </tr>
         <tr class="spacer"></tr>
         <tr>
           <th class="table-info">Informador</th>
-          <td>Paquito</td>
+          <td><?= $values['incidencia']->usuarioCreacion->nombre ?></td>
           <th class="table-info">Asignada a</th>
           <td>Eneko</td>
         </tr>
         <tr>
           <th class="table-info">Prioridad</th>
-          <td>Normal</td>
+          <td><?= $values['incidencia']->prioridad->cod ?> <?= $values['incidencia']->prioridad->nombre ?></td>
           <th class="table-info">Estado</th>
-          <td>nueva</td>
+          <td><?= $values['incidencia']->estado->cod ?> <?= $values['incidencia']->estado->nombre ?></td>
         </tr>
         <tr>
           <th class="table-info">Resolución</th>
@@ -40,11 +40,11 @@
         <tr class="spacer"></tr>
         <tr>
           <th class="table-info">Resumen</th>
-          <td colspan="3"> <?= $values['incidencia'][0]['asunto'] ?></td>
+          <td colspan="3"> <?= $values['incidencia']->asunto ?></td>
         </tr>
         <tr>
           <th class="table-info">Descripción</th>
-          <td colspan="3"><?= $values['incidencia'][0]['descripcion'] ?></td>
+          <td colspan="3"><?= $values['incidencia']->descripcion ?></td>
         </tr>
         <tr class="spacer"></tr>
       </tbody>
