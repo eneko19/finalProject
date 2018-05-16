@@ -14,8 +14,8 @@
           <th scope="col" class="table-info">Última modificación</i></th>
         </tr>
         <tr class="">
-          <td>000025</td>
-          <td>Administración</td>
+          <td><?= sprintf("%05d",$values['incidencia']->id) ?></td>
+          <td><?= $values['incidencia']->categoria->nombre ?></td>
           <td><?= $values['incidencia']->fechacreacion ?></td>
           <td><?= $values['incidencia']->fechamodificacion ?></td>
         </tr>
@@ -24,7 +24,7 @@
           <th class="table-info">Informador</th>
           <td><?= $values['incidencia']->usuarioCreacion->nombre ?></td>
           <th class="table-info">Asignada a</th>
-          <td>Eneko</td>
+          <td><?= $asign = !isset($values['incidencia']->usuarioAsignado->nombre) ? 'sin asignar': $values['incidencia']->usuarioAsignado->nombre;  ?></td>
         </tr>
         <tr>
           <th class="table-info">Prioridad</th>

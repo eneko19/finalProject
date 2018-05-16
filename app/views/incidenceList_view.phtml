@@ -47,12 +47,12 @@
                     <tbody>
                         <?php foreach ($values['incidencias'] as $value) { ?>
                             <tr class="text-center">
-                                <td><a href="#"><?= $value->id ?></a></td>
+                                <td><a href="#"><?= sprintf("%05d",$value->id) ?></a></td>
                                 <td><?= $value->prioridad->cod ?></td>
                                 <td>2</td>
                                 <td>1</td>
-                                <td><?= $value->categoria->nombre ?></td>
-                                <td><?= $value->estado->nombre ?></td>
+                                <td class="text-left"><?= $value->categoria->nombre ?></td>
+                                <td class="text-left"><?= $value->estado->cod ?> <?= $value->estado->nombre ?></td>
                                 <td><?= explode(' ',$value->fechamodificacion)[0] ?></td>
                                 <td class="text-left"><?= $value->asunto ?></td>
                             </tr>

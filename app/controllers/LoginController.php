@@ -31,21 +31,21 @@ class LoginController {
 
     public function login() {
         $login = new LoginModel();
-        
+
         $username = !empty($_POST['username']) ? $_POST['username'] : "";
         $password = !empty($_POST['password']) ? $_POST['password'] : "";
         //$password_encriptada = md5($password);
 
-        if (empty($_POST['username']) || empty($_POST['password']) ) {
+        if (empty($_POST['username']) || empty($_POST['password'])) {
             $template = new TemplateEngine('login');
-            $valores = [
+            $valores  = [
                 'userempty' => empty($_POST['username']),
-                'passempty' => empty($_POST['password'])        
-             ];
+                'passempty' => empty($_POST['password'])
+            ];
             return $template->pushValues($valores)->render();
         }
-        
-        
+
+
         $ok = $login->consultar_usuario();
         if ($ok) {
             $_SESSION['usuario'] = $username;
@@ -81,12 +81,16 @@ class LoginController {
     public function update() {
         $usuario = new LoginModel();
 
+        $user        = $_POST['usuario'];
         $oldPassword = $_POST['passActual'];
         $newPassword = $_POST['passNuevaConf'];
         $email       = $_POST['email'];
         $name        = $_POST['nombre'];
 
-        $usuario->updateUser($oldPassword, $newPassword, $email, $name);
+        $usuario->updateUser($user, $oldPassword, $newPassword, $email, $name);
+        
+        $url = base_url() . '';
+        header('Location:' . $url . 'login/view');
     }
 
     public function registerUser() {
@@ -98,9 +102,9 @@ class LoginController {
         $name     = $_POST['name'];
 
         $usuario->registerUser($user, $password, $email, $name);
-        
-        $url = base_url().'';
-        header('Location:'. $url .'');
+
+        $url = base_url() . '';
+        header('Location:' . $url . '');
     }
 
     /**

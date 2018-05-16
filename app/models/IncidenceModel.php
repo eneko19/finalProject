@@ -56,7 +56,7 @@ class IncidenceModel extends \dbObject {
     }
 
     public function getIncNoAsign() {
-        $inc = IncidenceModel::where('id_usuasignada', NULL, 'IS')->get(Array(0, 5));
+        $inc = IncidenceModel::where('id_usuasignada', NULL, 'IS')->orderBy("fechamodificacion ", "desc")->get(Array(0, 5));
 
         return $inc;
     }
@@ -70,7 +70,7 @@ class IncidenceModel extends \dbObject {
 
     public function getIncAsignMi() {
         $userAsign = $_SESSION['iduser'];
-        $inc = IncidenceModel::where('id_usuasignada', $userAsign)->get(Array(0, 5));
+        $inc = IncidenceModel::where('id_usuasignada', $userAsign)->orderBy("fechamodificacion ", "desc")->get(Array(0, 5));
 
         return $inc;
     }
@@ -84,19 +84,19 @@ class IncidenceModel extends \dbObject {
 
     public function getIncModif() {
         $fiveDaysAgo = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-d'))));
-        $inc = IncidenceModel::where('fechamodificacion', $fiveDaysAgo, '>=')->orderBy("fechamodificacion", "desc")->get(Array(0, 5));
+        $inc = IncidenceModel::where('fechamodificacion', $fiveDaysAgo, '>=')->orderBy("fechamodificacion", "desc")->orderBy("fechamodificacion ", "desc")->get(Array(0, 5));
         //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
         return $inc;
     }
 
     public function getIncAll() {
-        $inc = IncidenceModel::with('usuarioCreacion')->with('usuarioAsignado')->get();
+        $inc = IncidenceModel::with('usuarioCreacion')->with('usuarioAsignado')->orderBy("fechamodificacion ", "desc")->get();
         //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
         return $inc;
     }
 
     public function getInc($id) {
-        $inc = IncidenceModel::where('id', $id)->getOne();
+        $inc = IncidenceModel::with('usuarioCreacion')->with('usuarioAsignado')->where('incidencia.id', $id)->getOne();
         //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
         
         return $inc;

@@ -24,15 +24,18 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Nombre de usuario</th>
-                                    <td><?= $values['usuario']->usuario ?></td>
+                                    <td>
+                                        <?= $values['usuario']->usuario ?>
+                                        <input type="text" class="form-control d-none" id="passActual" name="usuario" value="<?= $values['usuario']->usuario ?>">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Contraseña actual</th>
-                                    <td><input type="text" class="form-control" id="passActual" name="passActual"></td>
+                                    <td><input type="text" class="form-control" id="passActual" name="passActual" placeholder="" required></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Constraseña nueva</th>
-                                    <td><input type="text" class="form-control" id="passNueva" name="passNueva"></td>
+                                    <td><input type="text" class="form-control" id="passNueva" name="passNueva" placeholder="que salgan cuando clickeas cambiar pass arriba en pass actual"></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Confirmar contraseña</th>
