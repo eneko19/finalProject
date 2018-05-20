@@ -30,6 +30,7 @@ class IncidenceModel extends \dbObject {
         'categoria'       => Array("hasOne", "Lookit\app\models\CategoriaModel", "id_categoria"),
         'prioridad'       => Array("hasOne", "Lookit\app\models\PrioridadModel", "id_prioridad"),
         'estado'          => Array("hasOne", "Lookit\app\models\EstadoModel", "id_estado"),
+        'comentario'          => Array("hasMany", "Lookit\app\models\ComentarioModel", "id_incidencia")
     );
 
     // Functions
@@ -57,7 +58,7 @@ class IncidenceModel extends \dbObject {
 
     public function getIncNoAsign() {
         $inc = IncidenceModel::where('id_usuasignada', NULL, 'IS')->orderBy("fechamodificacion ", "desc")->get(Array(0, 5));
-
+               
         return $inc;
     }
 

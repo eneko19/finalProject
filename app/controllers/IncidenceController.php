@@ -6,6 +6,7 @@ use Lookit\app\models\IncidenceModel;
 use Lookit\app\models\CategoriaModel;
 use Lookit\app\models\PrioridadModel;
 use Lookit\app\models\LoginModel;
+use Lookit\app\models\ComentarioModel;
 
 /**
  * Description of incidence_controller
@@ -78,13 +79,16 @@ class IncidenceController {
         $template = new TemplateEngine('incidence');
         $usuario  = new LoginModel();
         $inci     = new IncidenceModel();
+        $coments  = new ComentarioModel();
 
         $usu = $usuario->getUser();
         $inc = $inci->getInc($id);
+        $com = $coments->getComents($id);
 
         $valores = [
             'usuario'    => $usu,
-            'incidencia' => $inc
+            'incidencia' => $inc,
+            'comentario' => $com
         ];
 
         //echo "<pre>" . print_r($valores, 1) . "</pre>";die;

@@ -25,6 +25,7 @@ class LoginModel extends \dbObject {
         'tipousuario'  => Array("hasOne", 'Lookit\app\models\TipousuarioModel', 'id_tipousuario'),
         'inciCreacion' => Array("hasMany", 'Lookit\app\models\IncidenceModel', 'id_usucreacion'),
         'inciAsginada' => Array("hasMany", 'Lookit\app\models\IncidenceModel', 'id_usuasignada'),
+        'comentario' => Array("hasMany", 'Lookit\app\models\ComentarioModel', 'id_usuario')
     );
 
     // Functions

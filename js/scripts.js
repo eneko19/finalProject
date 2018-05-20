@@ -8,8 +8,38 @@ $(document).ready(function () {
     //   $('.navbar-primary').toggleClass('collapsed');
     //   $('.clickExp').toggleClass('d-none');
     // });
+    
     $(document).ready(function () {
         $('#example').DataTable();
     });
+
+    // Text editor
+    $('.content').richText({
+        // text formatting
+        bold: true,
+        italic: true,
+        underline: true,
+
+        // text alignment
+        leftAlign: true,
+        centerAlign: true,
+        rightAlign: true,
+
+        // lists
+        ol: true,
+        ul: true,
+
+        // title
+        heading: true,
+
+        //fonts
+        fontColor: true,
+        fontSize: true,
+
+        // link
+        urls: true,
+
+    });
+
 
 });

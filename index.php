@@ -69,6 +69,5 @@ $param2 = isset($requestParams[$pos+4])?$requestParams[$pos+4]:NULL;
 $otherParams = isset($_REQUEST)?$_REQUEST:NULL;
 
 //echo "<a href='".__BASE_PATH__."products/show/1'>Raton fornite</a>";
-
 MainController::dispatchRequest($controllerName,$action,$param1,$param2, $otherParams);
 
