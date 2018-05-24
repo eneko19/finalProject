@@ -41,13 +41,13 @@
                             <th scope="col">Categoría</th>
                             <th scope="col">Estado</th>
                             <th scope="col">Actualizada</th>
-                            <th scope="col" class="text-left">Resumen</th>
+                            <th width="60%" scope="col" class="text-left">Resumen</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($values['incidencias'] as $value) { ?>
                             <tr class="text-center">
-                                <td><a href="#"><?= sprintf("%05d",$value->id) ?></a></td>
+                                <td><a href="#"><?= sprintf("%04d",$value->id) ?></a></td>
                                 <td><?= $value->prioridad->cod ?></td>
                                 <td>2</td>
                                 <td>1</td>

@@ -13,6 +13,10 @@ $(document).ready(function () {
         $('#example').DataTable();
     });
 
+    /*Mostrar cambio de contraseña en user_view*/
+    $('#chgPass').click(function(){
+        $('.chnPass').toggleClass( "d-none" );
+});
     // Text editor
     $('.content').richText({
         // text formatting

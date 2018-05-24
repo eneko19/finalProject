@@ -15,12 +15,12 @@
                 <?php if(!empty($values['noAsign'])){ ?>
                 <?php foreach ($values['noAsign'] as $inci) {        ?>
                     <tr>
-                        <td scope="row">
+                        <td width="10%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
                           <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
-                        <td>
+                        <td width="90%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
                           <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
@@ -48,12 +48,12 @@
                 <?php if(!empty($values['repMi'])){ ?>
                 <?php foreach ($values['repMi'] as $inci) {        ?>
                     <tr>
-                        <td scope="row">
+                        <td width="10%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
                           <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
-                        <td>
+                        <td width="90%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
                           <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
@@ -81,12 +81,12 @@
                 <?php if(!empty($values['reslt'])){ ?>
                 <?php foreach ($values['reslt'] as $inci) {        ?>
                     <tr>
-                        <td scope="row">
+                        <td width="10%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
                           <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
-                        <td>
+                        <td width="90%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
                           <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
@@ -114,12 +114,12 @@
                 <?php if(!empty($values['modif'])){ ?>
                 <?php foreach ($values['modif'] as $inci) {        ?>
                     <tr>
-                        <td scope="row">
+                        <td width="10%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
                           <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
-                        <td>
+                        <td width="90%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
                           <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
@@ -147,12 +147,12 @@
                 <?php if(!empty($values['asignMi'])){ ?>
                 <?php foreach ($values['asignMi'] as $inci) {        ?>
                     <tr>
-                        <td scope="row">
+                        <td width="10%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= sprintf("%05d",$inci->id) ?></a>
                           <br>
                           <?= $inci->estado->cod?> <?= $inci->prioridad->cod ?> Arc
                         </td>
-                        <td>
+                        <td width="90%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
                           <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>
@@ -181,12 +181,12 @@
                 <?php if(!empty($values['modif'])){ ?>
                 <?php foreach ($values['modif'] as $inci) {        ?>
                     <tr>
-                        <td scope="row">
+                        <td width="10%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->id ?></a>
                           <br>
                           <?= $inci->prioridad->nombre ?>  <?= $inci->estado->nombre ?> Arc
                         </td>
-                        <td>
+                        <td width="90%">
                           <a href="<?= base_url()?>incidence/show/<?= $inci->id ?>"><?= $inci->asunto ?></a>
                           <br>
                           <small><?= $inci->categoria->nombre ?> - <?= $inci->fechacreacion ?></small>

@@ -1,4 +1,10 @@
-<?php require_once('plantilla.phtml'); ?>
+<?php require_once('plantilla.phtml'); 
+//echo "<pre>".print_r($values['incidencia']->id, 1)."</pre>";die;
+if(empty($values['incidencia']->id)){ 
+
+    require_once ('error_view.html');
+    
+ }else{ ?>
 
 <div class="card border border-primary my-3">
     <div class="card-header bg-primary text-light p-1">
@@ -146,5 +152,5 @@
         </table>
     </div>
 </div>
-
+<?php }?>
 </div>
