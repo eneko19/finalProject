@@ -57,12 +57,40 @@ class IncidenceController {
     }
 
     public function listar() {
+        $filter       = func_get_arg(0);
+        $text = '';
+        //echo "<pre>".print_r($filter, 1)."</pre>";die;
         $template = new TemplateEngine('incidenceList');
         $usuario  = new LoginModel();
         $inci     = new IncidenceModel();
 
         $usu    = $usuario->getUser();
-        $allInc = $inci->getIncAll();
+        
+        switch ($filter) {
+            case 'no-asignadas':
+                $allInc = $inci->getAllIncNoAsign();
+                $text = 'no asignadas';
+                break;
+            case 'reportadas':
+                $allInc = $inci->getAllIncRepMi();
+                $text = 'reportadas por mi';
+                break;
+            case 'resueltas':
+                $allInc = $inci->getAllIncReslt();
+                $text = 'resueltas';
+                break;
+            case 'modificadas-recientemente':
+                $allInc = $inci->getAllIncModif();
+                $text = 'modificadas recientemente';
+                break;
+            case 'asignadas':
+                $allInc = $inci->getAllIncAsignMi();
+                $text = 'asignadas';
+                break;
+            default:
+                $allInc = $inci->getIncAll();
+                break;
+        }
 
         $valores = [
             'usuario'     => $usu,
@@ -70,7 +98,7 @@ class IncidenceController {
         ];
 
 
-        return $template->pushValues($valores)->render();
+        return $template->pushValues($valores)->assign('texto', $text)->render();
     }
 
     public function show() {

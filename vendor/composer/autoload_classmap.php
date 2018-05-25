@@ -12,6 +12,7 @@ return array(
     'Lookit\\app\\controllers\\LoginController' => $baseDir . '/app/controllers/LoginController.php',
     'Lookit\\app\\controllers\\MainController' => $baseDir . '/app/controllers/MainController.php',
     'Lookit\\app\\controllers\\TemplateEngine' => $baseDir . '/app/controllers/TemplateEngine.php',
+    'Lookit\\app\\controllers\\settingsController' => $baseDir . '/app/controllers/settingsController.php',
     'Lookit\\app\\models\\CategoriaModel' => $baseDir . '/app/models/CategoriaModel.php',
     'Lookit\\app\\models\\ComentarioModel' => $baseDir . '/app/models/ComentarioModel.php',
     'Lookit\\app\\models\\EstadoModel' => $baseDir . '/app/models/EstadoModel.php',

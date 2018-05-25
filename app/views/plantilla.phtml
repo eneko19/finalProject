@@ -9,7 +9,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.2.1/dt-1.10.16/datatables.min.css"/>
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>
         <link rel="stylesheet" href="css/home.css">
@@ -45,6 +45,9 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?= base_url() ?>login/view"><i class="fas fa-user mr-3"></i>Mi cuenta</a>
+                                <?php if($values['usuario']->id_tipousuario == 1){ ?>
+                                <a class="dropdown-item" href="<?= base_url() ?>settings"><i class="fas fa-cog mr-3"></i>Administración</a>
+                                <?php } ?>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?= base_url() ?>login/logout"><i class="fas fa-sign-out-alt mr-3"></i>Salir</a>
                             </div>

@@ -25,12 +25,12 @@ class IncidenceModel extends \dbObject {
         'id_estado'         => Array('int')
     );
     protected $relations  = Array(
-        'usuarioCreacion' => Array("hasOne", "Lookit\app\models\LoginModel", "id_usucreacion",'uc'),
-        'usuarioAsignado' => Array("hasOne", "Lookit\app\models\LoginModel", "id_usuasignada",'ua'),
+        'usuarioCreacion' => Array("hasOne", "Lookit\app\models\LoginModel", "id_usucreacion", 'uc'),
+        'usuarioAsignado' => Array("hasOne", "Lookit\app\models\LoginModel", "id_usuasignada", 'ua'),
         'categoria'       => Array("hasOne", "Lookit\app\models\CategoriaModel", "id_categoria"),
         'prioridad'       => Array("hasOne", "Lookit\app\models\PrioridadModel", "id_prioridad"),
         'estado'          => Array("hasOne", "Lookit\app\models\EstadoModel", "id_estado"),
-        'comentario'          => Array("hasMany", "Lookit\app\models\ComentarioModel", "id_incidencia")
+        'comentario'      => Array("hasMany", "Lookit\app\models\ComentarioModel", "id_incidencia")
     );
 
     // Functions
@@ -58,34 +58,34 @@ class IncidenceModel extends \dbObject {
 
     public function getIncNoAsign() {
         $inc = IncidenceModel::where('id_usuasignada', NULL, 'IS')->orderBy("fechamodificacion ", "desc")->get(Array(0, 5));
-               
+
         return $inc;
     }
 
     public function getIncReslt() {
         //$inc = IncidenceModel::ArrayBuilder()->where('id_estado', 6)->get();
-          $inc = IncidenceModel::where('id_estado', 6)->get(Array(0, 5));
+        $inc = IncidenceModel::where('id_estado', 6)->get(Array(0, 5));
 
         return $inc;
     }
 
     public function getIncAsignMi() {
         $userAsign = $_SESSION['iduser'];
-        $inc = IncidenceModel::where('id_usuasignada', $userAsign)->orderBy("fechamodificacion ", "desc")->get(Array(0, 5));
+        $inc       = IncidenceModel::where('id_usuasignada', $userAsign)->orderBy("fechamodificacion ", "desc")->get(Array(0, 5));
 
         return $inc;
     }
 
     public function getIncRepMi() {
         $userAsign = $_SESSION['iduser'];
-        $inc = IncidenceModel::where('id_usucreacion', $userAsign)->get(Array(0, 5));
+        $inc       = IncidenceModel::where('id_usucreacion', $userAsign)->get(Array(0, 5));
 
         return $inc;
     }
 
     public function getIncModif() {
         $fiveDaysAgo = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-d'))));
-        $inc = IncidenceModel::where('fechamodificacion', $fiveDaysAgo, '>=')->orderBy("fechamodificacion", "desc")->orderBy("fechamodificacion ", "desc")->get(Array(0, 5));
+        $inc         = IncidenceModel::where('fechamodificacion', $fiveDaysAgo, '>=')->orderBy("fechamodificacion", "desc")->orderBy("fechamodificacion ", "desc")->get(Array(0, 5));
         //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
         return $inc;
     }
@@ -99,7 +99,41 @@ class IncidenceModel extends \dbObject {
     public function getInc($id) {
         $inc = IncidenceModel::with('usuarioCreacion')->with('usuarioAsignado')->where('incidencia.id', $id)->getOne();
         //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
-        
+
+        return $inc;
+    }
+
+    // Filtros
+    public function getAllIncNoAsign() {
+        $inc = IncidenceModel::where('id_usuasignada', NULL, 'IS')->orderBy("fechamodificacion ", "desc")->get();
+
+        return $inc;
+    }
+
+    public function getAllIncReslt() {
+        //$inc = IncidenceModel::ArrayBuilder()->where('id_estado', 6)->get();
+        $inc = IncidenceModel::where('id_estado', 6)->get();
+
+        return $inc;
+    }
+
+    public function getAllIncAsignMi() {
+        $userAsign = $_SESSION['iduser'];
+        $inc       = IncidenceModel::where('id_usuasignada', $userAsign)->orderBy("fechamodificacion ", "desc")->get();
+
+        return $inc;
+    }
+
+    public function getAllIncRepMi() {
+        $userAsign = $_SESSION['iduser'];
+        $inc       = IncidenceModel::where('id_usucreacion', $userAsign)->get();
+
+        return $inc;
+    }
+     public function getAllIncModif() {
+        $fiveDaysAgo = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-d'))));
+        $inc         = IncidenceModel::where('fechamodificacion', $fiveDaysAgo, '>=')->orderBy("fechamodificacion", "desc")->orderBy("fechamodificacion ", "desc")->get();
+        //echo "<pre>".print_r('No hay nada '.$inc, 1)."</pre>";die;
         return $inc;
     }
 

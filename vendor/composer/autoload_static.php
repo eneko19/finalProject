@@ -32,6 +32,7 @@ class ComposerStaticInitf3971f9289ce1901a3e7f73bc16870fa
         'Lookit\\app\\controllers\\LoginController' => __DIR__ . '/../..' . '/app/controllers/LoginController.php',
         'Lookit\\app\\controllers\\MainController' => __DIR__ . '/../..' . '/app/controllers/MainController.php',
         'Lookit\\app\\controllers\\TemplateEngine' => __DIR__ . '/../..' . '/app/controllers/TemplateEngine.php',
+        'Lookit\\app\\controllers\\settingsController' => __DIR__ . '/../..' . '/app/controllers/settingsController.php',
         'Lookit\\app\\models\\CategoriaModel' => __DIR__ . '/../..' . '/app/models/CategoriaModel.php',
         'Lookit\\app\\models\\ComentarioModel' => __DIR__ . '/../..' . '/app/models/ComentarioModel.php',
         'Lookit\\app\\models\\EstadoModel' => __DIR__ . '/../..' . '/app/models/EstadoModel.php',
