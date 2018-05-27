@@ -57,35 +57,35 @@ class IncidenceController {
     }
 
     public function listar() {
-        $filter       = func_get_arg(0);
-        $text = '';
+        $filter   = func_get_arg(0);
+        $text     = '';
         //echo "<pre>".print_r($filter, 1)."</pre>";die;
         $template = new TemplateEngine('incidenceList');
         $usuario  = new LoginModel();
         $inci     = new IncidenceModel();
 
-        $usu    = $usuario->getUser();
-        
+        $usu = $usuario->getUser();
+
         switch ($filter) {
             case 'no-asignadas':
                 $allInc = $inci->getAllIncNoAsign();
-                $text = 'no asignadas';
+                $text   = 'no asignadas';
                 break;
             case 'reportadas':
                 $allInc = $inci->getAllIncRepMi();
-                $text = 'reportadas por mi';
+                $text   = 'reportadas por mi';
                 break;
             case 'resueltas':
                 $allInc = $inci->getAllIncReslt();
-                $text = 'resueltas';
+                $text   = 'resueltas';
                 break;
             case 'modificadas-recientemente':
                 $allInc = $inci->getAllIncModif();
-                $text = 'modificadas recientemente';
+                $text   = 'modificadas recientemente';
                 break;
             case 'asignadas':
                 $allInc = $inci->getAllIncAsignMi();
-                $text = 'asignadas';
+                $text   = 'asignadas';
                 break;
             default:
                 $allInc = $inci->getIncAll();
@@ -133,7 +133,11 @@ class IncidenceController {
         $prio = $prioridad->showPriority();
         $usu  = $usuario->getUser();
 
-        $valores = ['categoria' => $cat, 'prioridad' => $prio, 'usuario' => $usu];
+        $valores = [
+            'categoria' => $cat,
+            'prioridad' => $prio,
+            'usuario'   => $usu
+        ];
 
 
         return $template->pushValues($valores)->render();
@@ -149,16 +153,16 @@ class IncidenceController {
         $prioridad      = $_POST['prioridad'];
 
         $incidencia->insertInc($asunto, $descripcion, $id_usucreacion, $categoria, $prioridad);
-        
-        $url = base_url().'';
-        header('Location:'. $url .'');
+
+        $url = base_url() . '';
+        header('Location:' . $url . '');
     }
 
     public function search() {
         $idIncidencia = $_POST['idInci'];
 
-        $url = base_url().'incidence/show/'.$idIncidencia.'';
-        header('Location:'. $url .'');
+        $url = base_url() . 'incidence/show/' . $idIncidencia . '';
+        header('Location:' . $url . '');
     }
 
 }

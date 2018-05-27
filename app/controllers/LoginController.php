@@ -92,6 +92,17 @@ class LoginController {
         $url = base_url() . '';
         header('Location:' . $url . 'login/view');
     }
+    
+    // Borra un usuario
+    public function delete(){
+        $id = func_get_arg(0);
+        $usuario = new LoginModel();
+        
+        $usuario->deleteUser($id);
+        
+        $url = base_url() . '';
+        header('Location:' . $url . 'settings');
+    }
 
     public function registerUser() {
         $usuario = new LoginModel();

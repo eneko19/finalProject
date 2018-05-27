@@ -10,7 +10,7 @@
                         <td>
                             <select id="categoria" name="categoria" class="form-control">
                                 <?php foreach ($values['categoria'] as $dato) { ?>                                              
-                                    <option value="<?php echo $dato['id'] ?>"><?php echo $dato['nombre'] ?></option>
+                                    <option value="<?php echo $dato->id ?>"><?php echo $dato->nombre ?></option>
                                 <?php } ?>
                             </select>
                         </td>

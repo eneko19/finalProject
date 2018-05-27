@@ -25,7 +25,7 @@ class LoginModel extends \dbObject {
         'tipousuario'  => Array("hasOne", 'Lookit\app\models\TipousuarioModel', 'id_tipousuario'),
         'inciCreacion' => Array("hasMany", 'Lookit\app\models\IncidenceModel', 'id_usucreacion'),
         'inciAsginada' => Array("hasMany", 'Lookit\app\models\IncidenceModel', 'id_usuasignada'),
-        'comentario' => Array("hasMany", 'Lookit\app\models\ComentarioModel', 'id_usuario')
+        'comentario'   => Array("hasMany", 'Lookit\app\models\ComentarioModel', 'id_usuario')
     );
 
     // Functions
@@ -52,6 +52,13 @@ class LoginModel extends \dbObject {
         return $login;
     }
 
+    public function getAllUsers() {
+
+        $users = LoginModel::with('tipousuario')->get();
+
+        return $users;
+    }
+
     public function updateUser($user, $oldPassword, $newPassword, $email, $name) {
         $usuario = LoginModel::where('usuario', $user)->where('password', $oldPassword)->getOne();
         //echo "<pre>".print_r($usuario, 1)."</pre>";die;
@@ -61,19 +68,15 @@ class LoginModel extends \dbObject {
                 $usuario->password = $newPassword;
                 $usuario->email    = $email;
                 $usuario->nombre   = $name;
-                
             } else {
                 $usuario->email  = $email;
                 $usuario->nombre = $name;
-                
             }
             //die('pass' . $oldPassword);
-            
-             return $usuario->update();
+
+            return $usuario->update();
             // echo "<pre>".print_r($usuario, 1)."</pre>";die;
             //echo 'wfewe'.\MysqliDb::getInstance()->getLastQuery();die;
-            
-           
         } else {
             echo 'ERROR';
         }
@@ -95,6 +98,12 @@ class LoginModel extends \dbObject {
             print_r($user->errors);
         }
         return $newUser;
+    }
+
+    public function deleteUser($id) {        
+        $user = LoginModel::byId($id);
+        
+        return $user->delete();
     }
 
 }

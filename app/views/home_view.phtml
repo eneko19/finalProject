@@ -9,7 +9,7 @@
             <a href="<?php base_url() ?>incidence/listar/no-asignadas" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
           </div>
           <div id="noAsign" class="collapse show" data-parent="#accordion">
-            <div class="card-body p-0">
+            <div class="card-body p-0 table-responsive">
                 <table class="table table-striped table-sm table-bordered m-0">
                 <tbody>
                 <?php if(!empty($values['noAsign'])){ ?>
@@ -42,7 +42,7 @@
             <a href="<?php base_url() ?>incidence/listar/reportadas" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
           </div>
           <div id="reportMi" class="collapse" data-parent="#accordion">
-            <div class="card-body p-0">
+            <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-sm table-bordered m-0">
                 <tbody>
                 <?php if(!empty($values['repMi'])){ ?>
@@ -75,7 +75,7 @@
             <a href="<?php base_url() ?>incidence/listar/resueltas" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
           </div>
           <div id="result" class="collapse show" data-parent="#accordion">
-            <div class="card-body p-0">
+            <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-sm table-bordered m-0">
                 <tbody>
                 <?php if(!empty($values['reslt'])){ ?>
@@ -108,7 +108,7 @@
               <a href="<?php base_url() ?>incidence/listar/modificadas-recientemente" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
             </div>
             <div id="modifRec" class="collapse show" data-parent="#accordion">
-            <div class="card-body p-0">
+            <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-sm table-bordered m-0">
                 <tbody>
                 <?php if(!empty($values['modif'])){ ?>
@@ -141,7 +141,7 @@
             <a href="<?php base_url() ?>incidence/listar/asignadas" class="btn btn-light text-dark btn-sm float-right">Ver incidencias</a>
           </div>
           <div id="asignMi" class="collapse show" data-parent="#accordion">
-            <div class="card-body p-0">
+            <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-sm table-bordered m-0">
                 <tbody>
                 <?php if(!empty($values['asignMi'])){ ?>
@@ -175,7 +175,7 @@
               <a class="card-link text-light float-right ml-4 mr-1" data-toggle="collapse" href="#linTiempo"><i class="fas fa-angle-down collapseCard"></i><i class="fas fa-angle-up collapseCard d-none"></i></a>
             </div>
             <div id="linTiempo" class="collapse show" data-parent="#accordion">
-            <div class="card-body p-0">
+            <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-sm table-bordered m-0">
                 <tbody>
                 <?php if(!empty($values['modif'])){ ?>

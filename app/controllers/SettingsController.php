@@ -18,12 +18,26 @@ use Lookit\app\models\ComentarioModel;
  *
  * @author eneko
  */
-class settingsController {
-    //put your code here
+class SettingsController {
     
     public function index() {
         $template = new TemplateEngine('setting');
         
-        $template->render();
+        $usuario   = new LoginModel();
+        $categoria = new CategoriaModel();
+
+        $usu  = $usuario->getUser();
+        $users = $usuario->getAllUsers();
+        $categorias = $categoria->showCategories();
+        
+
+        $valores = [
+            'usuario'   => $usu,
+            'usuarios'  => $users,
+            'categorias'  => $categorias
+        ];
+
+
+        return $template->pushValues($valores)->render();
     }
 }
