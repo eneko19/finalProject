@@ -171,4 +171,12 @@ tr.spacer {
     background-color: #c9ccc4;
 }
 
-/*Imagen incicencia view*/
+/*Cambiar width selects cambiar estado o usuario asignado*/
+.sel-chg{
+    width: auto;
+    display: inline;
+}
+/*Forms en linea */
+form{
+    display: inline;
+}

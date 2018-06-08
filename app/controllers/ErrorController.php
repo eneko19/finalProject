@@ -14,8 +14,10 @@ namespace Lookit\app\controllers;
  */
 
 class ErrorController{
-    
+
     public function index(){
-        echo "ERROR : ERROR CONTROLLER";
+        $template = new TemplateEngine('error404');
+        
+        return $template->render();
     }
 }

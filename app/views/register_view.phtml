@@ -60,7 +60,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control is-valid" name="username" id="validationUsername" placeholder="Nombre de usuario" required>
+            <input type="text" class="form-control is-valid" name="username" id="validationUsername" placeholder="Nombre de usuario" minlength="3" maxlength="16" required>
             <div class="invalid-feedback">
               Please choose a username.
             </div>
@@ -72,7 +72,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-unlock"></i></span>
             </div>
-            <input type="text" class="form-control is-invalid" name="password" id="validationPassword" placeholder="Contraseña" required>
+            <input type="password" class="form-control is-valid" name="password" id="validationPassword" placeholder="Contraseña"  minlength="6" maxlength="32" required>
             <div class="invalid-feedback">
               Please choose a password.
             </div>
@@ -83,7 +83,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-redo"></i></span>
             </div>
-            <input type="text" class="form-control is-valid" name="repassword" id="validationRePassword" placeholder="Confirme contraseña" required>
+            <input type="password" class="form-control is-valid" name="repassword" id="validationRePassword" placeholder="Confirme contraseña" required>
             <div class="invalid-feedback">
               Please choose a repassword.
             </div>
@@ -107,7 +107,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" class="form-control is-valid" name="name" id="validationName" placeholder="Nombre completo" required>
+            <input type="text" class="form-control is-valid" name="name" id="validationName" placeholder="Nombre completo" minlength=8 maxlength="32" required>
             <div class="invalid-feedback">
               Please choose a name.
             </div>

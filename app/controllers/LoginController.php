@@ -3,6 +3,7 @@
 namespace Lookit\app\controllers;
 
 use Lookit\app\models\LoginModel;
+use Lookit\app\models\IncidenceModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -128,5 +129,6 @@ class LoginController {
         $url = base_url() . '';
         header('Location:' . $url . '');
     }
+    
 
 }

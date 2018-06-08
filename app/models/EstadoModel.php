@@ -12,16 +12,21 @@ use dbObject;
 
 class EstadoModel extends \dbObject {
 
-    protected $dbTable = "estado";
+    protected $dbTable    = "estado";
     protected $primaryKey = "id";
-    protected $dbFields = Array(
+    protected $dbFields   = Array(
         'nombre' => Array('text')
     );
-    
-    protected $relations = Array(
+    protected $relations  = Array(
         'incidencia' => Array("hasMany", "Lookit\app\models\IncidenceModel", "id_estado"),
     );
 
     // Functions
+
+    public function getAllEstados() {
+        $estados = EstadoModel::get();
+
+        return $estados;
+    }
 
 }

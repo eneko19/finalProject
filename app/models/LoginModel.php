@@ -25,7 +25,8 @@ class LoginModel extends \dbObject {
         'tipousuario'  => Array("hasOne", 'Lookit\app\models\TipousuarioModel', 'id_tipousuario'),
         'inciCreacion' => Array("hasMany", 'Lookit\app\models\IncidenceModel', 'id_usucreacion'),
         'inciAsginada' => Array("hasMany", 'Lookit\app\models\IncidenceModel', 'id_usuasignada'),
-        'comentario'   => Array("hasMany", 'Lookit\app\models\ComentarioModel', 'id_usuario')
+        'comentario'   => Array("hasMany", 'Lookit\app\models\ComentarioModel', 'id_usuario'),
+        'historial'   => Array("hasMany", 'Lookit\app\models\HistorialModel', 'id_user')
     );
 
     // Functions
@@ -53,7 +54,6 @@ class LoginModel extends \dbObject {
     }
 
     public function getAllUsers() {
-
         $users = LoginModel::with('tipousuario')->get();
 
         return $users;
@@ -105,5 +105,6 @@ class LoginModel extends \dbObject {
         
         return $user->delete();
     }
+    
 
 }

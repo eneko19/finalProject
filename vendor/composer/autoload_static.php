@@ -37,6 +37,7 @@ class ComposerStaticInitf3971f9289ce1901a3e7f73bc16870fa
         'Lookit\\app\\models\\CategoriaModel' => __DIR__ . '/../..' . '/app/models/CategoriaModel.php',
         'Lookit\\app\\models\\ComentarioModel' => __DIR__ . '/../..' . '/app/models/ComentarioModel.php',
         'Lookit\\app\\models\\EstadoModel' => __DIR__ . '/../..' . '/app/models/EstadoModel.php',
+        'Lookit\\app\\models\\HistorialModel' => __DIR__ . '/../..' . '/app/models/HistorialModel.php',
         'Lookit\\app\\models\\IncidenceModel' => __DIR__ . '/../..' . '/app/models/IncidenceModel.php',
         'Lookit\\app\\models\\LoginModel' => __DIR__ . '/../..' . '/app/models/LoginModel.php',
         'Lookit\\app\\models\\PrioridadModel' => __DIR__ . '/../..' . '/app/models/PrioridadModel.php',

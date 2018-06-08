@@ -76,14 +76,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-unlock"></i></span>
                             </div>
-                            <input type="text" class="form-control <?php echo($validPass); ?>" name="password" id="validationPassword" placeholder="Contraseña">
+                            <input type="password" class="form-control <?php echo($validPass); ?>" name="password" id="validationPassword" placeholder="Contraseña">
                             <div class="invalid-feedback">
                                 Please choose a password.
                             </div>
 
 <?php if (isset($values['loginFailure']) && $values['loginFailure'] > 0) { ?>
                                 <div class="invalid-feedback">
-                                    FAILED LOGIN ATTEMPTS: <?= $values['loginFailure'] ?>. You have <?= (5 - $values['loginFailure']) ?> more attempt(s). 
+                                    FAILED LOGIN ATTEMPTS: <?= $values['loginFailure'] ?>. You have <?= (5 - $values['loginFailure']) ?> more attempt(s).
 
                                 </div>
 <?php } ?>

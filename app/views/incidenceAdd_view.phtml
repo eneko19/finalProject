@@ -9,7 +9,7 @@
                         <th scope="row" class="table-info">Categoría</th>
                         <td>
                             <select id="categoria" name="categoria" class="form-control">
-                                <?php foreach ($values['categoria'] as $dato) { ?>                                              
+                                <?php foreach ($values['categoria'] as $dato) { ?>
                                     <option value="<?php echo $dato->id ?>"><?php echo $dato->nombre ?></option>
                                 <?php } ?>
                             </select>
@@ -19,7 +19,7 @@
                         <th scope="row" class="table-info">Prioridad</th>
                         <td>
                             <select id="prioridad" name="prioridad" class="form-control">
-                                <?php foreach ($values['prioridad'] as $dato) { ?>                                              
+                                <?php foreach ($values['prioridad'] as $dato) { ?>
                                     <option value="<?php echo $dato['id'] ?>"><?php echo $dato['nombre'] ?></option>
                                 <?php } ?>
                             </select>
@@ -28,7 +28,7 @@
                 <input type="text" name="usucreacion" class="form-control d-none" id="asunto" value="<?= $values['usuario']->id ?>">
                 <tr>
                     <th width="30%" scope="row" class="table-info">Resumen</th>
-                    <td width="70%"><input type="text" name="asunto" class="form-control" id="asunto"></td>
+                    <td width="70%"><input type="text" name="asunto" class="form-control" id="asunto" minlength=3 maxlenght="80" required></td>
                 </tr>
                 <tr>
                     <th scope="row" class="table-info">Descripción</th>
@@ -36,7 +36,7 @@
                 </tr>
                 <tr>
                     <th scope="row" class="table-info">Subir archivo</th>
-                    <td><input type="email" class="form-control" id="email" placeholder="correo@correo.com"></td>
+                    <td><input type="file" class="form-control" id="email" placeholder="correo@correo.com"></td>
                 </tr>
                 </tbody>
             </table>

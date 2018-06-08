@@ -7,6 +7,8 @@ use Lookit\app\models\CategoriaModel;
 use Lookit\app\models\PrioridadModel;
 use Lookit\app\models\LoginModel;
 use Lookit\app\models\ComentarioModel;
+use Lookit\app\models\EstadoModel;
+use Lookit\app\models\HistorialModel;
 
 /**
  * Description of incidence_controller
@@ -17,41 +19,40 @@ class IncidenceController {
 
     // Functions
     public function index() {
-        //die('wfwef');
-        $values     = [
-            'username' => 'enekus19',
-            'user'     => 'Eneko Gallego',
-                //'usertype' => 'administrador'
-        ];
-        //echo "<pre>".print_r($_SESSION['iduser'], 1)."</pre>";
-//        return (new TemplateEngine('home'))->assign('username', 'enekus19')
-//                        ->assign('user', 'Eneko Gallego')
-//                        ->assign('usertype', 'administrador')
-//                        ->render();
-//                return (new TemplateEngine('home'))->pushValues($values)
-//                        ->assign('usertype', 'administrador')
-//                        ->render();
         $template   = new TemplateEngine('home');
         $usuario    = new LoginModel();
         $incidencia = new IncidenceModel();
+        $his        = new HistorialModel();
 
-        $usu        = $usuario->getUser();
-        $incNoAsign = $incidencia->getIncNoAsign();
-        $incReslt   = $incidencia->getIncReslt();
-        $incAsignMi = $incidencia->getIncAsignMi();
-        $incModif   = $incidencia->getIncModif();
-        $incRepMi   = $incidencia->getIncRepMi();
+        $usu             = $usuario->getUser();
+        $incNoAsign      = $incidencia->getIncNoAsign();
+        $incNoAsignCount = $incidencia->getIncNoAsignCount();
+        $incReslt        = $incidencia->getIncReslt();
+        $incResltCount   = $incidencia->getIncResltCount();
+        $incAsignMi      = $incidencia->getIncAsignMi();
+        $incAsignMiCount = $incidencia->getIncAsignMiCount();
+        $incModif        = $incidencia->getIncModif();
+        $incModifCount   = $incidencia->getIncModifCount();
+        $incRepMi        = $incidencia->getIncRepMi();
+        $incRepMiCount   = $incidencia->getIncRepMiCount();
+        $historial       = $his->getAllHis();
 
         $valores = [
-            'usuario' => $usu,
-            'noAsign' => $incNoAsign,
-            'reslt'   => $incReslt,
-            'asignMi' => $incAsignMi,
-            'modif'   => $incModif,
-            'repMi'   => $incRepMi
+            'usuario'      => $usu,
+            'noAsign'      => $incNoAsign,
+            'reslt'        => $incReslt,
+            'asignMi'      => $incAsignMi,
+            'modif'        => $incModif,
+            'repMi'        => $incRepMi,
+            'historial'    => $historial,
+            'countNoAsign' => $incNoAsignCount,
+            'countReslt'   => $incResltCount,
+            'countAsignMi' => $incAsignMiCount,
+            'countModif'   => $incModifCount,
+            'countRepMi'   => $incRepMiCount,
         ];
 
-        //echo "<pre>".print_r($template->pushValues($valores), 1)."</pre>";die;
+        //echo "<pre>".print_r($incNoAsign, 1)."</pre>";die;
 
         return $template->pushValues($valores)->render();
     }
@@ -108,15 +109,23 @@ class IncidenceController {
         $usuario  = new LoginModel();
         $inci     = new IncidenceModel();
         $coments  = new ComentarioModel();
+        $estado   = new EstadoModel();
+        $his      = new HistorialModel();
 
-        $usu = $usuario->getUser();
-        $inc = $inci->getInc($id);
-        $com = $coments->getComents($id);
+        $usu       = $usuario->getUser();
+        $allUsers  = $usuario->getAllUsers();
+        $inc       = $inci->getInc($id);
+        $com       = $coments->getComents($id);
+        $estados   = $estado->getAllEstados();
+        $historial = $his->getHis($id);
 
         $valores = [
             'usuario'    => $usu,
+            'allUsers'   => $allUsers,
             'incidencia' => $inc,
-            'comentario' => $com
+            'comentario' => $com,
+            'estados'    => $estados,
+            'historial'  => $historial
         ];
 
         //echo "<pre>" . print_r($valores, 1) . "</pre>";die;
@@ -145,14 +154,17 @@ class IncidenceController {
 
     public function insert() {
         $incidencia = new IncidenceModel();
+        $historial  = new HistorialModel();
 
+        $idUsu          = $_SESSION['iduser'];
         $asunto         = $_POST['asunto'];
         $descripcion    = $_POST['descripcion'];
         $id_usucreacion = $_POST['usucreacion'];
         $categoria      = $_POST['categoria'];
         $prioridad      = $_POST['prioridad'];
+        $insertInc      = $incidencia->insertInc($asunto, $descripcion, $id_usucreacion, $categoria, $prioridad);
 
-        $incidencia->insertInc($asunto, $descripcion, $id_usucreacion, $categoria, $prioridad);
+        $historial->newHis($idUsu, $insertInc, 1, 'Nueva incidencia', NULL, NULL);
 
         $url = base_url() . '';
         header('Location:' . $url . '');
@@ -163,6 +175,46 @@ class IncidenceController {
 
         $url = base_url() . 'incidence/show/' . $idIncidencia . '';
         header('Location:' . $url . '');
+    }
+
+    /* Cambia el usuario asigando de una asistencia */
+
+    public function chgUsuAsign() {
+        $inc = new IncidenceModel();
+        $his = new HistorialModel();
+
+        $usuAsign   = explode('|', $_POST['usuarioAsignado']);
+        $idUsu      = $_SESSION['iduser'];
+        $idInc      = func_get_arg(0);
+        $oldValue   = func_get_arg(1);
+        $newValue   = $usuAsign[1];
+        $idUsuAsign = $usuAsign[0];
+
+        $inc->chgUsuarioAsignado($idInc, $idUsuAsign);
+        $his->newHis($idUsu, $idInc, 3, 'Usuario asignado', $oldValue, $newValue);
+
+        $url = base_url() . 'incidence/show/' . $idInc;
+        header('Location:' . $url);
+    }
+
+    /* Cambia el usuario asigando de una asistencia */
+
+    public function chgEstado() {
+        $inc = new IncidenceModel();
+        $his = new HistorialModel();
+
+        $estado   = explode('|', $_POST['estado']);
+        $idInc    = func_get_arg(0);
+        $idEstado = $estado[0];
+        $oldValue = func_get_arg(1);
+        $newValue = $estado[1];
+        $idUsu    = $_SESSION['iduser'];
+
+        $inc->chgEstado($idInc, $idEstado);
+        $his->newHis($idUsu, $idInc, 4, 'Estado', $oldValue, $newValue);
+
+        $url = base_url() . 'incidence/show/' . $idInc;
+        header('Location:' . $url);
     }
 
 }

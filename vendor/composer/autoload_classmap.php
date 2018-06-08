@@ -17,6 +17,7 @@ return array(
     'Lookit\\app\\models\\CategoriaModel' => $baseDir . '/app/models/CategoriaModel.php',
     'Lookit\\app\\models\\ComentarioModel' => $baseDir . '/app/models/ComentarioModel.php',
     'Lookit\\app\\models\\EstadoModel' => $baseDir . '/app/models/EstadoModel.php',
+    'Lookit\\app\\models\\HistorialModel' => $baseDir . '/app/models/HistorialModel.php',
     'Lookit\\app\\models\\IncidenceModel' => $baseDir . '/app/models/IncidenceModel.php',
     'Lookit\\app\\models\\LoginModel' => $baseDir . '/app/models/LoginModel.php',
     'Lookit\\app\\models\\PrioridadModel' => $baseDir . '/app/models/PrioridadModel.php',
