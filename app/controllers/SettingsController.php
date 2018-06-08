@@ -7,6 +7,7 @@
  */
 
 namespace Lookit\app\controllers;
+
 use Lookit\app\models\IncidenceModel;
 use Lookit\app\models\CategoriaModel;
 use Lookit\app\models\PrioridadModel;
@@ -19,25 +20,24 @@ use Lookit\app\models\ComentarioModel;
  * @author eneko
  */
 class SettingsController {
-    
+
     public function index() {
         $template = new TemplateEngine('setting');
-        
+
         $usuario   = new LoginModel();
         $categoria = new CategoriaModel();
 
-        $usu  = $usuario->getUser();
-        $users = $usuario->getAllUsers();
+        $usu        = $usuario->getUser();
+        $users      = $usuario->getAllUsers();
         $categorias = $categoria->showCategories();
-        
 
         $valores = [
-            'usuario'   => $usu,
-            'usuarios'  => $users,
-            'categorias'  => $categorias
+            'usuario'    => $usu,
+            'usuarios'   => $users,
+            'categorias' => $categorias
         ];
-
 
         return $template->pushValues($valores)->render();
     }
+
 }

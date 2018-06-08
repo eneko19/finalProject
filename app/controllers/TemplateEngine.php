@@ -2,56 +2,57 @@
 
 namespace Lookit\app\controllers;
 
-class TemplateEngine{
- private static $templatesPath;
- private $values = [];
- private $Template;
- 
- public function __construct($template) {
-  $this->Template = $template;
-  return $this;
- }
- 
- public static function getTemplatesPath(){
-  return self::$templatesPath;
- }
- 
- public static function setTemplatesPath($path){
-  self::$templatesPath = $path;
- }
- 
-   public function assign($variable , $value){
+class TemplateEngine {
+
+    private static $templatesPath;
+    private $values = [];
+    private $Template;
+
+    public function __construct($template) {
+        $this->Template = $template;
+        return $this;
+    }
+
+    public static function getTemplatesPath() {
+        return self::$templatesPath;
+    }
+
+    public static function setTemplatesPath($path) {
+        self::$templatesPath = $path;
+    }
+
+    public function assign($variable, $value) {
         $this->values[$variable] = $value;
         return $this;
     }
 
- public function pushValues(array $values){
+    public function pushValues(array $values) {
         $this->values = array_merge($this->values, $values);
         return $this;
     }
 
- public function getValues(){
-  return $this->values;
- }
+    public function getValues() {
+        return $this->values;
+    }
 
- public function render(){
-  $values =  $this->getValues();
-  ob_start();
-  ob_clean();
-  
-  $this->templateExists(self::getTemplatesPath().$this->Template."_view.phtml");
+    public function render() {
+        $values = $this->getValues();
+        ob_start();
+        ob_clean();
 
-  include (self::getTemplatesPath().$this->Template."_view.phtml");
+        $this->templateExists(self::getTemplatesPath() . $this->Template . "_view.phtml");
 
-  return ob_get_clean();
- }
+        include (self::getTemplatesPath() . $this->Template . "_view.phtml");
 
- private function templateExists($path){
-  if(!file_exists($path)){
-   self::Debug("Couln't find template $templateName.",'Error',1);
-   exit;
-  }
-  return true;
- }
+        return ob_get_clean();
+    }
+
+    private function templateExists($path) {
+        if (!file_exists($path)) {
+            self::Debug("Couln't find template $templateName.", 'Error', 1);
+            exit;
+        }
+        return true;
+    }
 
 }
